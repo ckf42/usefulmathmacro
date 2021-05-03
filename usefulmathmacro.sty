@@ -1,0 +1,126 @@
+% refer to https://tug.org/TUGboat/tb31-1/tb97wright-xparse.pdf
+\NeedsTeXFormat{LaTeX2e}[2021/05/01]
+\ProvidesPackage{usefulmathcmd}[2021/05/01 Provides some useful math commands]
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{xparse}
+
+% sets
+\ProvideDocumentCommand{\real}{O{}}{
+    \mathbb{R}^{#1}
+}
+\ProvideDocumentCommand{\complex}{O{}}{
+    \mathbb{C}^{#1}
+}
+\ProvideDocumentCommand{\integer}{O{}}{
+    \mathbb{Z}^{#1}
+}
+\ProvideDocumentCommand{\naturalNumber}{O{}}{
+    \mathbb{N}^{#1}
+}
+\ProvideDocumentCommand{\realPlus}{}{
+    \real[+]
+}
+\ProvideDocumentCommand{\nonnegative}{}{
+    [0, \infty)
+}
+\ProvideDocumentCommand{\realHalfSpace}{O{}}{
+    \real[#1]_+
+}
+\ProvideDocumentCommand{\positiveInteger}{}{
+    \integer[+]
+}
+
+% geometric/topological sets
+\ProvideDocumentCommand{\metricBall}{O{1} o}{
+    B_{#1} \IfNoValueF{#2}{\!\left( #2 \right)}
+}
+\ProvideDocumentCommand{\closedMetricBall}{O{1} o}{
+    \overline{\metricBall[#1][#2]}
+}
+\ProvideDocumentCommand{\boundary}{m}{
+    \partial #1
+}
+\ProvideDocumentCommand{\unitSphere}{O{1}}{
+    S^{#1}
+}
+
+% usual functions
+\ProvideDocumentCommand{\abs}{m}{
+    \left| #1 \right|
+}
+\ProvideDocumentCommand{\norm}{m}{
+    \left\| #1 \right\|
+}
+\ProvideDocumentCommand{\innerProd}{m m}{
+    \left\langle #1 , \, #2 \right\rangle
+}
+\ProvideDocumentCommand{\evalAt}{m m}{
+    \left. #1 \right|_{#2}
+}
+\ProvideDocumentCommand{\trace}{}{
+    \mathrm{Tr}
+}
+
+% usual differential operators - function
+\ProvideDocumentCommand{\odinaryD}{m}{
+    \frac{\mathrm{d}}{\mathrm{d}#1}
+}
+\ProvideDocumentCommand{\partialD}{O{} O{}}{
+    \partial_{#1}^{#2}
+}
+\ProvideDocumentCommand{\partialDFrac}{O{} m}{
+    \frac{\partial #1}{\partial #2}
+}
+\ProvideDocumentCommand{\normalD}{O{}}{
+    \partialDFrac[#1]{n}
+}
+\ProvideDocumentCommand{\laplacian}{O{} O{}}{
+    \Delta_{#1}^{#2}
+}
+
+% usual differential operators - vector
+\ProvideDocumentCommand{\grad}{O{} O{}}{
+    \nabla_{#1}^{#2}
+}
+\ProvideDocumentCommand{\gradText}{}{
+    \mathrm{grad}
+}
+\ProvideDocumentCommand{\divergence}{O{}}{
+    \nabla_{#1} \! \cdot \!
+}
+\ProvideDocumentCommand{\divergenceText}{}{
+    \mathrm{div}
+}
+\ProvideDocumentCommand{\curl}{O{}}{
+    \nabla_{#1} \! \times \!
+}
+\ProvideDocumentCommand{\curlText}{}{
+    \mathrm{curl}
+}
+
+% usual differential operators - integral
+\ProvideDocumentCommand{\integralVar}{m}{
+    \mathrm{d} #1 \,
+}
+
+% function classes
+\ProvideDocumentCommand{\continuousFunc}{O{} O{} o}{
+    C_{#2}^{#1} \IfNoValueF{#3}{\negmedspace \left( #3 \right)}
+}
+\ProvideDocumentCommand{\smoothFunc}{O{} O{}}{
+    \continuousFunc[\infty][#1][#2]
+}
+\ProvideDocumentCommand{\analyticFunc}{O{} O{}}{
+    \continuousFunc[\omega][#1][#2]
+}
+\ProvideDocumentCommand{\lpFunc}{m O{} o}{
+    L_{#2}^{#1} \IfNoValueF{#3}{\negmedspace \left( #3 \right)}
+}
+\ProvideDocumentCommand{\sobolevFunc}{m m O{} o}{
+    W_{#3}^{#1, #2} \IfNoValueF{#4}{\negmedspace \left( #4 \right)}
+}
+\ProvideDocumentCommand{\sobolevHFunc}{m O{} o}{
+    H_{#2}^{#1} \IfNoValueF{#3}{\negmedspace \left( #3 \right)}
+}
