@@ -1,6 +1,6 @@
 % refer to https://tug.org/TUGboat/tb31-1/tb97wright-xparse.pdf
-\NeedsTeXFormat{LaTeX2e}[2021/05/01]
-\ProvidesPackage{usefulmathcmd}[2021/05/01 Provides some useful math commands]
+\NeedsTeXFormat{LaTeX2e}[2019-10-01]
+\ProvidesPackage{usefulmathmacro}[2021/05/01 Provides some useful math commands]
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -31,6 +31,9 @@
 \ProvideDocumentCommand{\positiveInteger}{}{
     \integer[+]
 }
+\ProvideDocumentCommand{\matrixSpace}{m m o}{
+    M^{#1 \times #2} \IfNoValueF{#3}{\! \left( #3 \right)}
+}
 
 % geometric/topological sets
 \ProvideDocumentCommand{\metricBall}{O{1} o}{
@@ -50,8 +53,11 @@
 \ProvideDocumentCommand{\abs}{m}{
     \left| #1 \right|
 }
-\ProvideDocumentCommand{\norm}{m}{
-    \left\| #1 \right\|
+\ProvideDocumentCommand{\norm}{O{} m}{
+    \left\| #2 \right\|_{#1}
+}
+\ProvideDocumentCommand{\opNorm}{m}{
+    \norm[\text{op}]{#1}
 }
 \ProvideDocumentCommand{\innerProd}{m m}{
     \left\langle #1 , \, #2 \right\rangle
@@ -106,21 +112,48 @@
 }
 
 % function classes
-\ProvideDocumentCommand{\continuousFunc}{O{} O{} o}{
-    C_{#2}^{#1} \IfNoValueF{#3}{\negmedspace \left( #3 \right)}
+\ProvideDocumentCommand{\continuousFunc}{O{} O{} o o}{
+    C_{#2}^{#1} \IfNoValueF{#3}{
+        \negmedspace \left(
+        #3
+        \IfNoValueF{#4}{;\, #4}
+        \right)
+    }
 }
-\ProvideDocumentCommand{\smoothFunc}{O{} O{}}{
-    \continuousFunc[\infty][#1][#2]
+\ProvideDocumentCommand{\smoothFunc}{O{} o o}{
+    \continuousFunc[\infty][#1][#2][#3]
 }
-\ProvideDocumentCommand{\analyticFunc}{O{} O{}}{
-    \continuousFunc[\omega][#1][#2]
+\ProvideDocumentCommand{\analyticFunc}{O{} o o}{
+    \continuousFunc[\omega][#1][#2][#3]
 }
-\ProvideDocumentCommand{\lpFunc}{m O{} o}{
-    L_{#2}^{#1} \IfNoValueF{#3}{\negmedspace \left( #3 \right)}
+\ProvideDocumentCommand{\lpFunc}{m O{} o o}{
+    L_{#2}^{#1} \IfNoValueF{#3}{
+        \negmedspace \left(
+        #3
+        \IfNoValueF{#4}{;\, #4}
+        \right)
+    }
 }
 \ProvideDocumentCommand{\sobolevFunc}{m m O{} o}{
     W_{#3}^{#1, #2} \IfNoValueF{#4}{\negmedspace \left( #4 \right)}
 }
 \ProvideDocumentCommand{\sobolevHFunc}{m O{} o}{
     H_{#2}^{#1} \IfNoValueF{#3}{\negmedspace \left( #3 \right)}
+}
+
+% complexity
+\ProvideDocumentCommand{\bigO}{m}{
+    \mathcal{O}\left( #1 \right)
+}
+\ProvideDocumentCommand{\smallO}{m}{
+    o\left( #1 \right)
+}
+\ProvideDocumentCommand{\bigOmega}{m}{
+    \Omega\left( #1 \right)
+}
+\ProvideDocumentCommand{\smallOmega}{m}{
+    \omega\left( #1 \right)
+}
+\ProvideDocumentCommand{\bigTheta}{m}{
+    \Theta( #1 \right)
 }
