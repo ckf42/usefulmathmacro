@@ -29,11 +29,11 @@
 # geometric/topological sets
 # --------------------
 \metricBall#m
-\metricBall[radius_1]#m
-\metricBall[radius_1][center]#m
+\metricBall[radius-1]#m
+\metricBall[radius-1][center]#m
 \closedMetricBall#m
-\closedMetricBall[radius_1]#m
-\closedMetricBall[radius_1][center]#m
+\closedMetricBall[radius-1]#m
+\closedMetricBall[radius-1][center]#m
 \boundary{set}#m
 \unitSphere#m
 \unitSphere[dim]#m
@@ -73,8 +73,8 @@
 \curl#m
 \curl[var]#m
 \curlText#m
-\dirac{arg1}{arg2}#m
-\dirac*{arg1}{arg2}#m
+\dirac{%<lower1%>;%<...%>}#m
+\dirac*{%<lower%>,%<upper%>;%<...%>}#m
 # --------------------
 # usual differential operators - integral
 # --------------------
@@ -83,9 +83,9 @@
 # function classes
 # --------------------
 \continuousFunc#m
-\continuousFunc[upper_0]#m
-\continuousFunc[upper_0][][set]#m
-\continuousFunc[upper_0][lower][set][valset]#m
+\continuousFunc[upper-0]#m
+\continuousFunc[upper-0][][set]#m
+\continuousFunc[upper-0][lower][set][valset]#m
 \smoothFunc#m
 \smoothFunc[][set]#m
 \smoothFunc[lower][set][valset]#m
