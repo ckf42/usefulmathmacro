@@ -19,10 +19,13 @@
 \ProvideDocumentCommand{\naturalNumber}{O{}}{
     \mathbb{N}^{#1}
 }
-\ProvideDocumentCommand{\realPlus}{}{
+\ProvideDocumentCommand{\rationalNumber}{O{}}{
+    \mathbb{Q}^{#1}
+}
+\ProvideDocumentCommand{\positiveReal}{}{
     \real[+]
 }
-\ProvideDocumentCommand{\nonnegative}{}{
+\ProvideDocumentCommand{\nonnegativeReal}{}{
     [0, \infty)
 }
 \ProvideDocumentCommand{\realHalfSpace}{O{}}{
@@ -33,6 +36,15 @@
 }
 \ProvideDocumentCommand{\matrixSpace}{m m o}{
     M^{#1 \times #2} \IfNoValueF{#3}{\! \left( #3 \right)}
+}
+\ProvideDocumentCommand{\setBuilder}{m o}{
+    \left\{
+    #1
+    \IfNoValueF{#2}{
+        \middle|
+        #2
+    }
+    \right\}
 }
 
 % geometric/topological sets
@@ -65,8 +77,8 @@
 \ProvideDocumentCommand{\evalAt}{m m}{
     \left. #1 \right|_{#2}
 }
-\ProvideDocumentCommand{\trace}{}{
-    \mathrm{Tr}
+\ProvideDocumentCommand{\trace}{o}{
+    \mathrm{Tr} \IfNoValueF{#1}{\left( #1 \right)}
 }
 
 % usual differential operators - function
@@ -112,7 +124,7 @@
 }
 
 % function classes
-\ProvideDocumentCommand{\continuousFunc}{O{} O{} o o}{
+\ProvideDocumentCommand{\continuousFunc}{O{0} O{} o o}{
     C_{#2}^{#1} \IfNoValueF{#3}{
         \negmedspace \left(
         #3
