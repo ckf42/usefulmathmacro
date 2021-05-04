@@ -35,7 +35,10 @@
     \integer[+]
 }
 \ProvideDocumentCommand{\matrixSpace}{m m o}{
-    M^{#1 \times #2} \IfNoValueF{#3}{\! \left( #3 \right)}
+    M_{#1 \times #2} \IfNoValueF{#3}{\! \left( #3 \right)}
+}
+\ProvideDocumentCommand{\scalarMatrix}{m m m}{
+    {#1}^{#2 \times #3}
 }
 \ProvideDocumentCommand{\setBuilder}{m o}{
     \left\{
@@ -106,7 +109,7 @@
     \mathrm{grad}
 }
 \ProvideDocumentCommand{\divergence}{O{}}{
-    \nabla_{#1} \! \cdot \!
+    \nabla_{#1} \! \cdot
 }
 \ProvideDocumentCommand{\divergenceText}{}{
     \mathrm{div}
@@ -116,6 +119,9 @@
 }
 \ProvideDocumentCommand{\curlText}{}{
     \mathrm{curl}
+}
+\ProvideDocumentCommand{\dirac}{s m m}{ % WORK IN PROCESS MAY CHANGE LATER
+    \delta_{#2 \IfBooleanTF{#1}{,}{} #3}
 }
 
 % usual differential operators - integral

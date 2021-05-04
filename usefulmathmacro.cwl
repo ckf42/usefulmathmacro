@@ -22,6 +22,7 @@
 \positiveInteger#m
 \matrixSpace{n}{m}#m
 \matrixSpace{n}{m}[set]#m
+\scalarMatrix{set}{n}{m}#m
 \setBuilder{obj}#m
 \setBuilder{obj}[cond]#m
 # --------------------
@@ -51,6 +52,7 @@
 # usual differential operators - function
 # --------------------
 \odinaryD{var}#m
+\partialD#m
 \partialD[lower]#m
 \partialD[lower][upper]#m
 \partialDFrac{var}#m
@@ -71,6 +73,8 @@
 \curl#m
 \curl[var]#m
 \curlText#m
+\dirac{arg1}{arg2}#m
+\dirac*{arg1}{arg2}#m
 # --------------------
 # usual differential operators - integral
 # --------------------
