@@ -25,8 +25,8 @@
 \ProvideDocumentCommand{\positiveReal}{}{
     \real[+]
 }
-\ProvideDocumentCommand{\nonnegativeReal}{}{
-    [0, \infty)
+\ProvideDocumentCommand{\nonnegativeReal}{s}{
+    [0, \infty \IfBooleanTF{#1}{]}{)}
 }
 \ProvideDocumentCommand{\realHalfSpace}{O{}}{
     \real[#1]_+
@@ -35,7 +35,7 @@
     \integer[+]
 }
 \ProvideDocumentCommand{\matrixSpace}{m m o}{
-    M_{#1 \times #2} \IfNoValueF{#3}{\! \left( #3 \right)}
+    {M_{#1 \times #2}} \IfNoValueF{#3}{\! \left( #3 \right)}
 }
 \ProvideDocumentCommand{\scalarMatrix}{m m m}{
     {#1}^{#2 \times #3}
@@ -49,10 +49,13 @@
     }
     \right\}
 }
+\ProvideDocumentCommand{\funcDef}{m m m}{
+    #1 : #2 \rightarrow #3
+}
 
 % geometric/topological sets
 \ProvideDocumentCommand{\metricBall}{O{1} o}{
-    B_{#1} \IfNoValueF{#2}{\!\left( #2 \right)}
+    {B_{#1}} \IfNoValueF{#2}{\!\left( #2 \right)}
 }
 \ProvideDocumentCommand{\closedMetricBall}{O{1} o}{
     \overline{\metricBall[#1][#2]}
@@ -77,11 +80,20 @@
 \ProvideDocumentCommand{\innerProd}{m m}{
     \left\langle #1 , \, #2 \right\rangle
 }
+\ProvideDocumentCommand{\dotProd}{m m}{
+    #1 \cdot #2
+}
 \ProvideDocumentCommand{\evalAt}{m m}{
-    \left. #1 \right|_{#2}
+    {\left. #1 \right|_{#2}}
 }
 \ProvideDocumentCommand{\trace}{o}{
     \mathrm{Tr} \IfNoValueF{#1}{\left( #1 \right)}
+}
+\ProvideDocumentCommand{\inv}{O{1} m}{
+    {{#2}^{-#1}}
+}
+\ProvideDocumentCommand{\normalized}{m}{
+    \frac{#1}{\abs{#1}}
 }
 
 % usual differential operators - function
@@ -89,7 +101,7 @@
     \frac{\mathrm{d}}{\mathrm{d}#1}
 }
 \ProvideDocumentCommand{\partialD}{O{} O{}}{
-    \partial_{#1}^{#2}
+    {\partial_{#1}^{#2}}
 }
 \ProvideDocumentCommand{\partialDFrac}{O{} m}{
     \frac{\partial #1}{\partial #2}
@@ -98,12 +110,12 @@
     \partialDFrac[#1]{n}
 }
 \ProvideDocumentCommand{\laplacian}{O{} O{}}{
-    \Delta_{#1}^{#2}
+    {\Delta_{#1}^{#2}}
 }
 
 % usual differential operators - vector
 \ProvideDocumentCommand{\grad}{O{} O{}}{
-    \nabla_{#1}^{#2}
+    {\nabla_{#1}^{#2}}
 }
 \ProvideDocumentCommand{\gradText}{}{
     \mathrm{grad}
@@ -111,11 +123,14 @@
 \ProvideDocumentCommand{\divergence}{O{}}{
     \nabla_{#1} \! \cdot
 }
+\ProvideDocumentCommand{\divergenceD}{O{}}{
+    \partial_{#1} \! \cdot
+}
 \ProvideDocumentCommand{\divergenceText}{}{
     \mathrm{div}
 }
 \ProvideDocumentCommand{\curl}{O{}}{
-    \nabla_{#1} \! \times \!
+    {\nabla_{#1} \! \times \!}
 }
 \ProvideDocumentCommand{\curlText}{}{
     \mathrm{curl}
@@ -137,15 +152,15 @@
 
 % usual differential operators - integral
 \ProvideDocumentCommand{\integralVar}{m}{
-    \mathrm{d} #1 \,
+    \mathrm{d} #1
 }
 
 % function classes
 \ProvideDocumentCommand{\continuousFunc}{O{0} O{} o o}{
-    C_{#2}^{#1} \IfNoValueF{#3}{
+    {C_{#2}^{#1}} \IfNoValueF{#3}{
         \negmedspace \left(
         #3
-        \IfNoValueF{#4}{;\, #4}
+        \IfNoValueF{#4}{\,;\, #4}
         \right)
     }
 }
@@ -156,33 +171,33 @@
     \continuousFunc[\omega][#1][#2][#3]
 }
 \ProvideDocumentCommand{\lpFunc}{m O{} o o}{
-    L_{#2}^{#1} \IfNoValueF{#3}{
+    {L_{#2}^{#1}} \IfNoValueF{#3}{
         \negmedspace \left(
         #3
-        \IfNoValueF{#4}{;\, #4}
+        \IfNoValueF{#4}{\,;\, #4}
         \right)
     }
 }
 \ProvideDocumentCommand{\sobolevFunc}{m m O{} o}{
-    W_{#3}^{#1, #2} \IfNoValueF{#4}{\negmedspace \left( #4 \right)}
+    {W_{#3}^{#1, #2}} \IfNoValueF{#4}{\negmedspace \left( #4 \right)}
 }
 \ProvideDocumentCommand{\sobolevHFunc}{m O{} o}{
-    H_{#2}^{#1} \IfNoValueF{#3}{\negmedspace \left( #3 \right)}
+    {H_{#2}^{#1}} \IfNoValueF{#3}{\negmedspace \left( #3 \right)}
 }
 
 % complexity
 \ProvideDocumentCommand{\bigO}{m}{
-    \mathcal{O}\left( #1 \right)
+    \mathcal{O}\!\left( #1 \right)
 }
 \ProvideDocumentCommand{\smallO}{m}{
-    o\left( #1 \right)
+    o\!\left( #1 \right)
 }
 \ProvideDocumentCommand{\bigOmega}{m}{
-    \Omega\left( #1 \right)
+    \Omega\!\left( #1 \right)
 }
 \ProvideDocumentCommand{\smallOmega}{m}{
-    \omega\left( #1 \right)
+    \omega\!\left( #1 \right)
 }
 \ProvideDocumentCommand{\bigTheta}{m}{
-    \Theta( #1 \right)
+    \Theta\!\left( #1 \right)
 }

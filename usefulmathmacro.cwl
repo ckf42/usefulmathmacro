@@ -17,6 +17,7 @@
 \rationalNumber[dim]#m
 \positiveReal#m
 \nonnegativeReal#m
+\nonnegativeReal*#m
 \realHalfSpace#m
 \realHalfSpace[dim]#m
 \positiveInteger#m
@@ -25,6 +26,7 @@
 \scalarMatrix{set}{n}{m}#m
 \setBuilder{obj}#m
 \setBuilder{obj}[cond]#m
+\funcDef{funcName}{domain}{codomain}#m
 # --------------------
 # geometric/topological sets
 # --------------------
@@ -45,9 +47,13 @@
 \norm[lower]{arg}#m
 \opNorm{arg}#m
 \innerProd{arg1}{arg2}#m
+\dotProd{arg1}{arg2}#m
 \evalAt{func}{evalpt}#m
 \trace#m
 \trace[arg]#m
+\inv{arg}#m
+\inv[power-1][arg]#m
+\normalized{arg}#m
 # --------------------
 # usual differential operators - function
 # --------------------
@@ -69,12 +75,14 @@
 \gradText#m
 \divergence#m
 \divergence[var]#m
+\divergenceD#m
+\divergenceD[var]#m
 \divergenceText#m
 \curl#m
 \curl[var]#m
 \curlText#m
 \dirac{%<lower1%>;%<...%>}#m
-\dirac*{%<lower%>,%<upper%>;%<...%>}#m
+\dirac*{%<lower1%>,%<upper1%>;%<...%>}#m
 # --------------------
 # usual differential operators - integral
 # --------------------
