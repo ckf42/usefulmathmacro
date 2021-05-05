@@ -4,6 +4,7 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{amsthm}
 \RequirePackage{xparse}
 
 % sets
@@ -201,3 +202,10 @@
 \ProvideDocumentCommand{\bigTheta}{m}{
     \Theta\!\left( #1 \right)
 }
+
+% environments
+\ProvideDocumentEnvironment{labledproof}{O{Theorem} m +b}{
+    \begin{proof}[Proof of #1 \ref{#2}]
+        #3
+    \end{proof}
+}{}

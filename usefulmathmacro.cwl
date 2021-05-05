@@ -2,6 +2,7 @@
 #include:amsmath
 #include:amssymb
 #include:xparse
+#include:amsthm
 # --------------------
 # sets
 # --------------------
@@ -117,3 +118,9 @@
 \bigOmega{func}#m
 \smallOmega{func}#m
 \bigTheta{func}#m
+# --------------------
+# environments
+# --------------------
+\begin{labledproof}{label%ref}#n\proof
+\begin{labledproof}[type-Theorem]{label%ref}#n\proof
+\end{labledproof}#n

@@ -9,6 +9,7 @@ If you use TexStudio, you can also put the `.cwl` file in completion directory.
 ## dependency
 * amsmath
 * amssymb
+* amsthm
 * xparse
 
 ## license
