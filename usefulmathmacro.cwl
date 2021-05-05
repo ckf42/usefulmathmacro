@@ -27,6 +27,7 @@
 \scalarMatrix{set}{n}{m}#m
 \setBuilder{obj}#m
 \setBuilder{obj}[cond]#m
+\setBuilder[sep-|]{obj}[cond]#m
 \funcDef{funcName}{domain}{codomain}#m
 # --------------------
 # geometric/topological sets
@@ -48,7 +49,6 @@
 \norm[lower]{arg}#m
 \opNorm{arg}#m
 \innerProd{arg1}{arg2}#m
-\dotProd{arg1}{arg2}#m
 \evalAt{func}{evalpt}#m
 \trace#m
 \trace[arg]#m

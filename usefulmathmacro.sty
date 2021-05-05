@@ -41,12 +41,12 @@
 \ProvideDocumentCommand{\scalarMatrix}{m m m}{
     {#1}^{#2 \times #3}
 }
-\ProvideDocumentCommand{\setBuilder}{m o}{
+\ProvideDocumentCommand{\setBuilder}{O{\middle|} m o}{
     \left\{
-    #1
-    \IfNoValueF{#2}{
-        \middle|
-        #2
+    #2
+    \IfNoValueF{#3}{
+        \,#1\,
+        #3
     }
     \right\}
 }
@@ -80,9 +80,6 @@
 }
 \ProvideDocumentCommand{\innerProd}{m m}{
     \left\langle #1 , \, #2 \right\rangle
-}
-\ProvideDocumentCommand{\dotProd}{m m}{
-    #1 \cdot #2
 }
 \ProvideDocumentCommand{\evalAt}{m m}{
     {\left. #1 \right|_{#2}}
