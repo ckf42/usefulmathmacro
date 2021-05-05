@@ -58,7 +58,7 @@
 # --------------------
 # usual differential operators - function
 # --------------------
-\odinaryD{var}#m
+\ordinaryD{var}#m
 \partialD#m
 \partialD[lower]#m
 \partialD[lower][upper]#m
