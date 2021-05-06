@@ -55,15 +55,19 @@
 \inv{arg}#m
 \inv[power-1][arg]#m
 \normalized{arg}#m
+\normalized[normmacro-abs]{arg}#m
+\transpose{arg}#m
+\transpose[sym-mathsfT]{arg}#m
 # --------------------
 # usual differential operators - function
 # --------------------
 \ordinaryD{var}#m
+\ordinaryD{var}[func]#m
 \partialD#m
 \partialD[lower]#m
 \partialD[lower][upper]#m
 \partialDFrac{var}#m
-\partialDFrac[func]{var}#m
+\partialDFrac{var}[func]#m
 \normalD#m
 \normalD[func]#m
 \laplacian[lower]#m

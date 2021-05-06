@@ -90,22 +90,25 @@
 \ProvideDocumentCommand{\inv}{O{1} m}{
     {{#2}^{-#1}}
 }
-\ProvideDocumentCommand{\normalized}{m}{
-    \frac{#1}{\abs{#1}}
+\ProvideDocumentCommand{\normalized}{O{\abs} m}{
+    \frac{#2}{#1{#2}}
+}
+\ProvideDocumentCommand{\transpose}{O{\mathsf{T}} m}{
+    {#2}^{#1}
 }
 
 % usual differential operators - function
-\ProvideDocumentCommand{\ordinaryD}{m}{
-    \frac{\mathrm{d}}{\mathrm{d}#1}
+\ProvideDocumentCommand{\ordinaryD}{m O{}}{
+    \frac{\mathrm{d} {#2}}{\mathrm{d} {#1}}
 }
 \ProvideDocumentCommand{\partialD}{O{} O{}}{
     {\partial_{#1}^{#2}}
 }
-\ProvideDocumentCommand{\partialDFrac}{O{} m}{
-    \frac{\partial #1}{\partial #2}
+\ProvideDocumentCommand{\partialDFrac}{m O{}}{
+    \frac{\partial {#2}}{\partial {#1}}
 }
 \ProvideDocumentCommand{\normalD}{O{}}{
-    \partialDFrac[#1]{n}
+    \partialDFrac{n}[#1]
 }
 \ProvideDocumentCommand{\laplacian}{O{} O{}}{
     {\Delta_{#1}^{#2}}
@@ -201,6 +204,7 @@
 }
 
 % environments
+% TODO put #1 in ref part too (e.g. clickable with hyperref)
 \ProvideDocumentEnvironment{labledproof}{O{Theorem} m +b}{
     \begin{proof}[Proof of #1 \ref{#2}]
         #3
