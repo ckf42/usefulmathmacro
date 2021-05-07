@@ -86,6 +86,7 @@
 \curl#m
 \curl[var]#m
 \curlText#m
+\dirac{lower}#m
 \dirac{%<lower1%>;%<...%>}#m
 \dirac*{%<lower1%>,%<upper1%>;%<...%>}#m
 # --------------------
