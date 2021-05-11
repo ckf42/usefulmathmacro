@@ -58,6 +58,8 @@
 \normalized[normmacro-abs]{arg}#m
 \transpose{arg}#m
 \transpose[sym-mathsfT]{arg}#m
+\limit{var}{target}#m
+\limit*{var}{target}#m
 # --------------------
 # usual differential operators - function
 # --------------------
