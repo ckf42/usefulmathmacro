@@ -113,6 +113,9 @@
 }
 
 % usual differential operators - function
+\ProvideDocumentCommand{\derivativeD}{O{}}{
+    \mathrm{D}^{#1}
+}
 \ProvideDocumentCommand{\ordinaryD}{m O{}}{
     \frac{\mathrm{d} {#2}}{\mathrm{d} {#1}}
 }

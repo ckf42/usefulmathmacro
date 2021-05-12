@@ -63,6 +63,8 @@
 # --------------------
 # usual differential operators - function
 # --------------------
+\derivativeD#m
+\derivativeD[upper]#m
 \ordinaryD{var}#m
 \ordinaryD{var}[func]#m
 \partialD#m
