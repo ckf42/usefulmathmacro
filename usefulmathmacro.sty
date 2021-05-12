@@ -220,8 +220,11 @@
 
 % environments
 % TODO put #1 in ref part too (e.g. clickable with hyperref)
-\ProvideDocumentEnvironment{labledproof}{O{Theorem} m +b}{
-    \begin{proof}[Proof of {#1} \ref{#2}]
+\ProvideDocumentEnvironment{labledproof}{o m +b}{
+    \begin{proof}[Proof of 
+        \IfNoValueTF{#1}
+        {\ifcsname autoref\endcsname\autoref{#2}\else Theorem \ref{#2}\fi}
+        {#1 \ref{#2}}]
         #3
     \end{proof}
 }{}
