@@ -41,11 +41,18 @@
 \ProvideDocumentCommand{\scalarMatrix}{m m m}{
     {#1}^{{#2} \times {#3}}
 }
-\ProvideDocumentCommand{\setBuilder}{O{\middle|} m o}{
-    \left\{
-    {#2}
-    \IfNoValueF{#3}{\,#1\,{#3}}
-    \right\}
+\ProvideDocumentCommand{\setBuilder}{O{|} m o}{ 
+    % TODO: need better fix for line breaking if #2 or #3 is too long
+    \IfNoValueTF{#3}{
+        \left\{ \protect\vphantom{#2} \right.
+        #2 
+        \left. \protect\vphantom{#2} \right\}  
+    }{
+        \left\{ \protect\vphantom{#2#3} \right.\! #2 
+        \left. \protect\vphantom{#2} \middle #1 \protect\vphantom{#3} \right.
+        \allowbreak
+        #3 \!\left. \protect\vphantom{#2#3} \right\}
+    }
 }
 \ProvideDocumentCommand{\funcDef}{m m m}{
     {#1} : {#2} \rightarrow {#3}
