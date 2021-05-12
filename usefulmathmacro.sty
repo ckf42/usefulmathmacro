@@ -153,15 +153,15 @@
 }
 \ProvideDocumentCommand{\dirac}{s >{\SplitList{ ; }}m}{
     \begingroup
-    \newcommand{\umcTempDirac}[1]{\delta_{##1}}
-    \newcommand{\umcTempDiracTwo}[2]{\delta_{##1}^{##2}}
-    \NewDocumentCommand{\umcTempSplitThenDirac}{>{\SplitArgument{1}{ , }}m}{
-        \umcTempDiracTwo ##1
+    \newcommand{\umc@TempDirac}[1]{\delta_{##1}}
+    \newcommand{\umc@TempDiracTwo}[2]{\delta_{##1}^{##2}}
+    \NewDocumentCommand{\umc@TempSplitThenDirac}{>{\SplitArgument{1}{ , }}m}{
+        \umc@TempDiracTwo ##1
     }
     \IfBooleanTF{#1}{
-        \ProcessList{#2}{\umcTempSplitThenDirac}
+        \ProcessList{#2}{\umc@TempSplitThenDirac}
     }{
-        \ProcessList{#2}{\umcTempDirac}
+        \ProcessList{#2}{\umc@TempDirac}
     }
     \endgroup
 }
