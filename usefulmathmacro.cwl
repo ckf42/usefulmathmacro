@@ -44,9 +44,12 @@
 # --------------------
 # usual functions
 # --------------------
+\abs*{arg}#m
 \abs{arg}#m
+\norm*{arg}#m
 \norm{arg}#m
 \norm[lower]{arg}#m
+\opNorm*{arg}#m
 \opNorm{arg}#m
 \innerProd{arg1}{arg2}#m
 \evalAt{func}{evalpt}#m
