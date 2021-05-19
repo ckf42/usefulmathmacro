@@ -63,6 +63,8 @@
 \transpose[sym-mathsfT]{arg}#m
 \limit{var}{target}#m
 \limit*{var}{target}#m
+\tensorPower{arg}#m
+\tensorPower[upper-2]{arg}#m
 # --------------------
 # usual differential operators - function
 # --------------------
