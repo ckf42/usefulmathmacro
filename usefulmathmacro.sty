@@ -120,11 +120,11 @@
 \ProvideDocumentCommand{\transpose}{O{\mathsf{T}} m}{
     {#2}^{#1}
 }
-\ProvideDocumentCommand{\limit}{s m m}{
+\ProvideDocumentCommand{\limit}{s m o}{
     \IfBooleanTF{#1}{
-        \lim_{{#2} \to {#3}}
+        \lim_{{#2} \IfNoValueF{#3}{\to {#3}}}
     }{
-        \lim\limits_{{#2} \to {#3}}
+        \lim\limits_{{#2} \IfNoValueF{#3}{\to {#3}}}
     }
 }
 \ProvideDocumentCommand{\tensorPower}{O{2} m}{

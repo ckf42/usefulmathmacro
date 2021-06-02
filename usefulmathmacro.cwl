@@ -61,8 +61,10 @@
 \normalized[normmacro-abs]{arg}#m
 \transpose{arg}#m
 \transpose[sym-mathsfT]{arg}#m
-\limit{var}{target}#m
-\limit*{var}{target}#m
+\limit{var}#m
+\limit{var}[target]#m
+\limit*{var}#m
+\limit*{var}[target]#m
 \tensorPower{arg}#m
 \tensorPower[upper-2]{arg}#m
 # --------------------
