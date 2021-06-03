@@ -35,6 +35,8 @@
 \matrixSpace{n}{m}#m
 \matrixSpace{n}{m}[set]#m
 \scalarMatrix{set}{n}{m}#m
+\torus#m
+\torus[dim]#m
 \setBuilder{obj}#m
 \setBuilder{obj}[cond]#m
 \setBuilder[sep-|]{obj}[cond]#m
@@ -84,11 +86,13 @@
 \derivativeD[upper]#m
 \ordinaryD{var}#m
 \ordinaryD{var}[func]#m
+\od{var}#m
 \partialD#m
 \partialD[lower]#m
 \partialD[lower][upper]#m
 \partialDFrac{var}#m
 \partialDFrac{var}[func]#m
+\pd{var}#m
 \normalD#m
 \normalD[func]#m
 \laplacian[lower]#m

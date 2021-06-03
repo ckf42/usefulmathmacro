@@ -46,6 +46,9 @@
 \ProvideDocumentCommand{\scalarMatrix}{m m m}{
     {#1}^{{#2} \times {#3}}
 }
+\ProvideDocumentCommand{\torus}{O{}}{
+    \mathbb{T}^{#1}
+}
 \ProvideDocumentCommand{\setBuilder}{s O{|} m o}{ 
     % TODO: need better fix for line breaking if #2 or #3 is too long
     \IfBooleanTF{#1}{
@@ -143,9 +146,11 @@
 \ProvideDocumentCommand{\ordinaryD}{m O{}}{
     \frac{\mathrm{d} {#2}}{\mathrm{d} {#1}}
 }
+\providecommand{\od}[1]{\ordinaryD{#1}[]}
 \ProvideDocumentCommand{\partialD}{O{} O{}}{
     {\partial_{#1}^{#2}}
 }
+\providecommand{\pd}[1]{\partialD{#1}[]}
 \ProvideDocumentCommand{\partialDFrac}{m O{}}{
     \frac{\partial {#2}}{\partial {#1}}
 }
