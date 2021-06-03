@@ -8,14 +8,24 @@
 # --------------------
 \real#m
 \real[dim]#m
+\RR#m
+\RR[dim]#m
 \complex#m
 \complex[dim]#m
+\CC#m
+\CC[dim]#m
 \integer#m
 \integer[dim]#m
+\ZZ#m
+\ZZ[dim]#m
 \naturalNumber#m
 \naturalNumber[dim]#m
+\NN#m
+\NN[dim]#m
 \rationalNumber#m
 \rationalNumber[dim]#m
+\QQ#m
+\QQ[dim]#m
 \positiveReal#m
 \nonnegativeReal#m
 \nonnegativeReal*#m
