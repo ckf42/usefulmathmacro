@@ -79,6 +79,10 @@
 \limit*{var}[target]#m
 \tensorPower{arg}#m
 \tensorPower[upper-2]{arg}#m
+\ceil*{arg}#m
+\ceil{arg}#m
+\floor*{arg}#m
+\floor{arg}#m
 # --------------------
 # usual differential operators - function
 # --------------------

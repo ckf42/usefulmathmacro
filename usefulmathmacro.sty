@@ -138,6 +138,24 @@
 \ProvideDocumentCommand{\tensorPower}{O{2} m}{
     {#2}^{\otimes {#1}}
 }
+\ProvideDocumentCommand{\ceil}{s m}{
+    \IfBooleanTF{#1}{
+        \left\lceil #2 \right\rceil
+    }{
+        \left\lceil \protect\vphantom{#2} \right. \!
+        {#2}
+        \! \left. \protect\vphantom{#2} \right\rceil
+    }
+}
+\ProvideDocumentCommand{\floor}{s m}{
+    \IfBooleanTF{#1}{
+        \left\lfloor #2 \right\rfloor
+    }{
+        \left\lfloor \protect\vphantom{#2} \right. \!
+        {#2}
+        \! \left. \protect\vphantom{#2} \right\rfloor
+    }
+}
 
 % usual differential operators - function
 \ProvideDocumentCommand{\derivativeD}{O{}}{
