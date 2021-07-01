@@ -156,6 +156,12 @@
         \! \left. \protect\vphantom{#2} \right\rfloor
     }
 }
+\ProvideDocumentCommand{\support}{o}{
+    \mathrm{supp} \IfNoValueF{#1}{\, #1}
+}
+\ProvideDocumentCommand{\indicator}{s m}{
+    {\IfBooleanTF{#1}{\mathbf{1}}{\chi}_{#2}}
+}
 
 % usual differential operators - function
 \ProvideDocumentCommand{\derivativeD}{O{}}{

@@ -83,6 +83,10 @@
 \ceil{arg}#m
 \floor*{arg}#m
 \floor{arg}#m
+\support#m
+\support[func]#m
+\indicator{set}#m
+\indicator*{set}#m
 # --------------------
 # usual differential operators - function
 # --------------------
