@@ -229,7 +229,7 @@
 
 % function classes
 \ProvideDocumentCommand{\continuousFunc}{O{0} O{} o o}{
-    {C_{#2}^{#1}} \IfNoValueF{#3}{
+    {\mathit{C}_{#2}^{#1}} \IfNoValueF{#3}{
         \negmedspace \left(
         {#3}
         \IfNoValueF{#4}{\,;\, {#4}}
@@ -243,7 +243,7 @@
     \continuousFunc[\omega][#1][#2][#3]
 }
 \ProvideDocumentCommand{\lpFunc}{m O{} o o}{
-    {L_{#2}^{#1}} \IfNoValueF{#3}{
+    {\mathit{L}_{#2}^{#1}} \IfNoValueF{#3}{
         \negmedspace \left(
         {#3}
         \IfNoValueF{#4}{\,;\, {#4}}
@@ -251,10 +251,10 @@
     }
 }
 \ProvideDocumentCommand{\sobolevFunc}{m m O{} o}{
-    {W_{#3}^{#1, #2}} \IfNoValueF{#4}{\negmedspace \left( {#4} \right)}
+    {\mathit{W}_{#3}^{#1, #2}} \IfNoValueF{#4}{\negmedspace \left( {#4} \right)}
 }
 \ProvideDocumentCommand{\sobolevHFunc}{m O{} o}{
-    {H_{#2}^{#1}} \IfNoValueF{#3}{\negmedspace \left( {#3} \right)}
+    {\mathit{H}_{#2}^{#1}} \IfNoValueF{#3}{\negmedspace \left( {#3} \right)}
 }
 
 % complexity
