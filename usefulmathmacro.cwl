@@ -87,6 +87,8 @@
 \support[func]#m
 \indicator{set}#m
 \indicator*{set}#m
+\colvect{%<col1%>;%<...%>}#m
+\colvect[%<type-p%>]{%<col1%>;%<...%>}#m
 # --------------------
 # usual differential operators - function
 # --------------------

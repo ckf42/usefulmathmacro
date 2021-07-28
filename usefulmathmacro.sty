@@ -162,6 +162,12 @@
 \ProvideDocumentCommand{\indicator}{s m}{
     {\IfBooleanTF{#1}{\mathbf{1}}{\chi}_{#2}}
 }
+\ProvideDocumentCommand{\colvect}{O{p} >{\SplitList { ; }}m}{
+    \newcommand{\ummTempAddLineBreakAfter}[1]{##1 \\}
+    \begin{#1matrix}
+        \ProcessList{#2}{\ummTempAddLineBreakAfter}
+    \end{#1matrix}
+}
 
 % usual differential operators - function
 \ProvideDocumentCommand{\derivativeD}{O{}}{
