@@ -41,6 +41,10 @@
 \setBuilder{obj}[cond]#m
 \setBuilder[sep-|]{obj}[cond]#m
 \funcDef{funcName}{domain}{codomain}#m
+\interval(leftopen-neginfty)(rightopen-posinfty)#m
+\interval[leftclose][rightclose]#m
+\interval[leftclose](rightopen-posinfty)#m
+\interval(leftopen)[rightclose]#m
 # --------------------
 # geometric/topological sets
 # --------------------

@@ -69,6 +69,28 @@
 \ProvideDocumentCommand{\funcDef}{m m m}{
     {#1} : {#2} \rightarrow {#3}
 }
+\ProvideDocumentCommand{\interval}{ o d() o d() }{
+    \begingroup
+    \newcommand{\ummTempIntBegin}{
+        \IfNoValueTF{#1}{
+            \IfNoValueTF{#2}{ \left( -\infty }{ \left( {#2} }
+        }{ \left[ {#1} }
+    }
+    \newcommand{\ummTempGetBehindVal}{
+        \IfNoValueTF{#3}{
+            \IfNoValueTF{#4}{ +\infty \right) }{ {#4} \right) }
+        }{ {#3} \right] }
+    }
+    \newcommand{\ummTempIntEnd}{
+        \IfNoValueTF{#2}{
+            \ummTempGetBehindVal
+        }{
+            \IfNoValueTF{#1}{ \ummTempGetBehindVal }{ {#2} \right) }
+        }
+    }
+    \ummTempIntBegin , \ummTempIntEnd
+    \endgroup
+}
 
 % geometric/topological sets
 \ProvideDocumentCommand{\metricBall}{O{1} o}{
