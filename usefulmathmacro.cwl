@@ -93,6 +93,7 @@
 \indicator*{set}#m
 \colvect{%<col1%>;%<...%>}#m
 \colvect[%<type-p%>]{%<col1%>;%<...%>}#m
+\sgn#m
 # --------------------
 # usual differential operators - function
 # --------------------
