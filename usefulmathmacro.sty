@@ -193,6 +193,12 @@
 \ProvideDocumentCommand{\sgn}{}{
     \mathrm{sgn}
 }
+\ProvideDocumentCommand{\summation}{o o o}{
+    \sum_{#1 = #2}^{#3}
+}
+\ProvideDocumentCommand{\product}{o o o}{
+    \prod_{#1 = #2}^{#3}
+}
 
 % usual differential operators - function
 \ProvideDocumentCommand{\derivativeD}{O{}}{

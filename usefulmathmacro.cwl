@@ -94,6 +94,8 @@
 \colvect{%<col1%>;%<...%>}#m
 \colvect[%<type-p%>]{%<col1%>;%<...%>}#m
 \sgn#m
+\summation{idx}{beginval}{endval}#m
+\product{idx}{beginval}{endval}#m
 # --------------------
 # usual differential operators - function
 # --------------------
