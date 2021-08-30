@@ -107,23 +107,20 @@
 }
 
 % usual functions
-\ProvideDocumentCommand{\abs}{s m}{
+\ProvideDocumentCommand{\ummGeneralBracket}{s m m m}{
     \IfBooleanTF{#1}{
-        \left| #2 \right|
+        \left#2 #4 \right#3
     }{
-        \left| \protect\vphantom{#2} \right. \!
-        {#2}
-        \! \left. \protect\vphantom{#2} \right|
+        \left#2 \protect\vphantom{#4} \right. \!
+        #4
+        \! \left. \protect\vphantom{#4} \right#3
     }
 }
+\ProvideDocumentCommand{\abs}{s m}{
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{|}{|}{#2}
+}
 \ProvideDocumentCommand{\norm}{s O{} m}{
-    \IfBooleanTF{#1}{
-        \left\| #3 \right\|_{#2}
-    }{
-        \left\| \protect\vphantom{#3} \right. \!
-        {#3}
-        \! \left. \protect\vphantom{#3} \right\|_{#2}
-    }
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\|}{\|}{#2}
 }
 \ProvideDocumentCommand{\opNorm}{s m}{
     \IfBooleanTF{#1}{\norm*}{\norm}[\text{op}]{#2}
@@ -161,22 +158,10 @@
     {#2}^{\otimes {#1}}
 }
 \ProvideDocumentCommand{\ceil}{s m}{
-    \IfBooleanTF{#1}{
-        \left\lceil #2 \right\rceil
-    }{
-        \left\lceil \protect\vphantom{#2} \right. \!
-        {#2}
-        \! \left. \protect\vphantom{#2} \right\rceil
-    }
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lceil}{\rceil}{#2}
 }
 \ProvideDocumentCommand{\floor}{s m}{
-    \IfBooleanTF{#1}{
-        \left\lfloor #2 \right\rfloor
-    }{
-        \left\lfloor \protect\vphantom{#2} \right. \!
-        {#2}
-        \! \left. \protect\vphantom{#2} \right\rfloor
-    }
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lfloor}{\rfloor}{#2}
 }
 \ProvideDocumentCommand{\support}{o}{
     \mathrm{supp} \IfNoValueF{#1}{\, #1}
@@ -198,6 +183,9 @@
 }
 \ProvideDocumentCommand{\product}{o o o}{
     \prod_{#1 = #2}^{#3}
+}
+\ProvideDocumentCommand{\chevron}{s m}{
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\langle}{\rangle}{#2}
 }
 
 % usual differential operators - function

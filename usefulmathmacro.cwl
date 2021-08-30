@@ -96,6 +96,8 @@
 \sgn#m
 \summation{idx}{beginval}{endval}#m
 \product{idx}{beginval}{endval}#m
+\chevron*{arg}#m
+\chevron{arg}#m
 # --------------------
 # usual differential operators - function
 # --------------------
