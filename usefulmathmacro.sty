@@ -120,7 +120,11 @@
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{|}{|}{#2}
 }
 \ProvideDocumentCommand{\norm}{s O{} m}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\|}{\|}{#2}
+    \IfNoValueTF{#2}{
+        \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\|}{\|}{#3}
+    }{
+        {\IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\|}{\|}{#3}_{#2}}
+    }
 }
 \ProvideDocumentCommand{\opNorm}{s m}{
     \IfBooleanTF{#1}{\norm*}{\norm}[\text{op}]{#2}
