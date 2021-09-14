@@ -91,6 +91,9 @@
     \ummTempIntBegin , \ummTempIntEnd
     \endgroup
 }
+\ProvideDocumentCommand{\dual}{m}{
+    {#1}^*
+}
 
 % geometric/topological sets
 \ProvideDocumentCommand{\metricBall}{O{1} o}{
@@ -252,6 +255,9 @@
 }
 
 % usual differential operators - integral
+\ProvideDocumentCommand{\integral}{m m}{
+    \int_{#1}^{#2}
+}
 \ProvideDocumentCommand{\integralVar}{m}{
     \mathrm{d} {#1}
 }

@@ -45,6 +45,7 @@
 \interval[leftclose][rightclose]#m
 \interval[leftclose](rightopen-posinfty)#m
 \interval(leftopen)[rightclose]#m
+\dual{space}#m
 # --------------------
 # geometric/topological sets
 # --------------------
@@ -136,6 +137,7 @@
 # --------------------
 # usual differential operators - integral
 # --------------------
+\integral{lower}{upper}#m
 \integralVar{var}#m
 # --------------------
 # function classes
