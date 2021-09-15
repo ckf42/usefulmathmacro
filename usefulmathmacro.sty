@@ -133,14 +133,10 @@
     \IfBooleanTF{#1}{\norm*}{\norm}[\text{op}]{#2}
 }
 \ProvideDocumentCommand{\innerProd}{m m}{
-    \left\langle {#1} , \, {#2} \right\rangle
+    \ummGeneralBracket{\langle}{\rangle}{{#1}, \, {#2}}
 }
 \ProvideDocumentCommand{\evalAt}{m m}{
-    {
-        \left. 
-            {#1} 
-        \right|_{#2}
-    }
+    \ummGeneralBracket{.}{|}{{#1}}_{#2}
 }
 \ProvideDocumentCommand{\trace}{o}{
     \mathrm{tr} \IfNoValueTF{#1}{\,}{\! \left( #1 \right)}
