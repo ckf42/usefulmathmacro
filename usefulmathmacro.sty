@@ -199,10 +199,14 @@
     \frac{\mathrm{d} {#2}}{\mathrm{d} {#1}}
 }
 \providecommand{\od}[1]{\ordinaryD{#1}[]}
-\ProvideDocumentCommand{\partialD}{O{} O{}}{
+\ProvideDocumentCommand{\partialD}{m O{}}{
     {\partial_{#1}^{#2}}
 }
 \providecommand{\pd}[1]{\partialD{#1}[]}
+\ProvideDocumentCommand{\ordinaryDFrac}{m O{}}{
+    % consistent naming
+    \ordinaryD{#1}[#2]
+}
 \ProvideDocumentCommand{\partialDFrac}{m O{}}{
     \frac{\partial {#2}}{\partial {#1}}
 }

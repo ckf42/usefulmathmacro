@@ -108,11 +108,13 @@
 \ordinaryD{var}[func]#m
 \od{var}#m
 \partialD#m
-\partialD[lower]#m
-\partialD[lower][upper]#m
+\partialD{lower}#m
+\partialD{lower}[upper]#m
+\pd{var}#m
+\ordinaryDFrac{var}#m
+\ordinaryDFrac{var}[func]#m
 \partialDFrac{var}#m
 \partialDFrac{var}[func]#m
-\pd{var}#m
 \normalD#m
 \normalD[func]#m
 \laplacian[lower]#m
