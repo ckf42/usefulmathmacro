@@ -45,6 +45,9 @@
 \interval[leftclose][rightclose]#m
 \interval[leftclose](rightopen-posinfty)#m
 \interval(leftopen)[rightclose]#m
+\spanSet{set}#m
+\spanSet*{set}#m
+\integerRange{start}{end}#m
 # --------------------
 # geometric/topological sets
 # --------------------
@@ -60,6 +63,8 @@
 # --------------------
 # usual objects
 # --------------------
+\colvect{%<col1%>;%<...%>}#m
+\colvect[%<type-p%>]{%<col1%>;%<...%>}#m
 \idenMatrix#m
 \idenMatrix[sub]#m
 # --------------------
@@ -96,11 +101,11 @@
 \support[func]#m
 \indicator{set}#m
 \indicator*{set}#m
-\colvect{%<col1%>;%<...%>}#m
-\colvect[%<type-p%>]{%<col1%>;%<...%>}#m
 \sgn#m
 \summation{idx}{beginval}{endval}#m
+\summation*{idx}{beginval}{endval}#m
 \product{idx}{beginval}{endval}#m
+\product*{idx}{beginval}{endval}#m
 \chevron*{arg}#m
 \chevron{arg}#m
 \dual{space}#m

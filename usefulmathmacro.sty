@@ -91,6 +91,17 @@
     \ummTempIntBegin , \ummTempIntEnd
     \endgroup
 }
+\ProvideDocumentCommand{\spanSet}{s m}{
+    \mathrm{Span}
+    \IfBooleanTF{#1}{
+        \ummGeneralBracket*{(}{)}{#2}
+    }{
+        \ummGeneralBracket{(}{)}{#2}
+    }
+}
+\ProvideDocumentCommand{\integerRange}{m m}{
+    \ummGeneralBracket{\{}{\}}{#1, \ldots, #2}
+}
 
 % geometric/topological sets
 \ProvideDocumentCommand{\metricBall}{O{1} o}{
@@ -107,6 +118,14 @@
 }
 
 % usual objects
+\ProvideDocumentCommand{\colvect}{O{p} >{\SplitList { ; }}m}{
+    \begingroup
+    \newcommand{\ummTempAddLineBreakAfter}[1]{##1 \\}
+    \begin{#1matrix}
+        \ProcessList{#2}{\ummTempAddLineBreakAfter}
+    \end{#1matrix}
+    \endgroup
+}
 \ProvideDocumentCommand{\idenMatrix}{O{}}{
     {\mathrm{I}_{#1}}
 }
@@ -174,20 +193,14 @@
 \ProvideDocumentCommand{\indicator}{s m}{
     {\IfBooleanTF{#1}{\mathbf{1}}{\chi}_{#2}}
 }
-\ProvideDocumentCommand{\colvect}{O{p} >{\SplitList { ; }}m}{
-    \newcommand{\ummTempAddLineBreakAfter}[1]{##1 \\}
-    \begin{#1matrix}
-        \ProcessList{#2}{\ummTempAddLineBreakAfter}
-    \end{#1matrix}
-}
 \ProvideDocumentCommand{\sgn}{}{
     \mathrm{sgn}
 }
-\ProvideDocumentCommand{\summation}{m m m}{
-    \sum_{#1 = #2}^{#3}
+\ProvideDocumentCommand{\summation}{s m m m}{
+    \sum\IfBooleanT{#1}{\limits}_{#2 = #3}^{#4}
 }
-\ProvideDocumentCommand{\product}{m m m}{
-    \prod_{#1 = #2}^{#3}
+\ProvideDocumentCommand{\product}{s m m m}{
+    \prod\IfBooleanT{#1}{\limits}_{#2 = #3}^{#4}
 }
 \ProvideDocumentCommand{\chevron}{s m}{
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\langle}{\rangle}{#2}
