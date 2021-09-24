@@ -45,7 +45,6 @@
 \interval[leftclose][rightclose]#m
 \interval[leftclose](rightopen-posinfty)#m
 \interval(leftopen)[rightclose]#m
-\dual{space}#m
 # --------------------
 # geometric/topological sets
 # --------------------
@@ -58,6 +57,11 @@
 \boundary{set}#m
 \unitSphere#m
 \unitSphere[dim]#m
+# --------------------
+# usual objects
+# --------------------
+\idenMatrix#m
+\idenMatrix[sub]#m
 # --------------------
 # usual functions
 # --------------------
@@ -99,6 +103,9 @@
 \product{idx}{beginval}{endval}#m
 \chevron*{arg}#m
 \chevron{arg}#m
+\dual{space}#m
+\image#m
+\idenMap#m
 # --------------------
 # usual differential operators - function
 # --------------------

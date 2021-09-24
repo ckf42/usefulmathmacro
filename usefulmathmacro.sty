@@ -91,9 +91,6 @@
     \ummTempIntBegin , \ummTempIntEnd
     \endgroup
 }
-\ProvideDocumentCommand{\dual}{m}{
-    {#1}^*
-}
 
 % geometric/topological sets
 \ProvideDocumentCommand{\metricBall}{O{1} o}{
@@ -107,6 +104,11 @@
 }
 \ProvideDocumentCommand{\unitSphere}{O{1}}{
     S^{#1}
+}
+
+% usual objects
+\ProvideDocumentCommand{\idenMatrix}{O{}}{
+    {\mathrm{I}_{#1}}
 }
 
 % usual functions
@@ -189,6 +191,15 @@
 }
 \ProvideDocumentCommand{\chevron}{s m}{
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\langle}{\rangle}{#2}
+}
+\ProvideDocumentCommand{\dual}{m}{
+    {#1}^*
+}
+\ProvideDocumentCommand{\image}{}{
+    \mathrm{Im}\, 
+}
+\ProvideDocumentCommand{\idenMap}{}{
+    \mathrm{Id}\,
 }
 
 % usual differential operators - function
