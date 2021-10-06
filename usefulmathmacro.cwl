@@ -48,6 +48,8 @@
 \spanSet{set}#m
 \spanSet*{set}#m
 \integerRange{start}{end}#m
+\bra{arg}m
+\ket{arg}m
 # --------------------
 # geometric/topological sets
 # --------------------
@@ -63,8 +65,8 @@
 # --------------------
 # usual objects
 # --------------------
-\colvect{%<col1%>;%<...%>}#m
-\colvect[%<type-p%>]{%<col1%>;%<...%>}#m
+\colVect{%<col1%>;%<...%>}#m
+\colVect[%<type-p%>]{%<col1%>;%<...%>}#m
 \idenMatrix#m
 \idenMatrix[sub]#m
 # --------------------
