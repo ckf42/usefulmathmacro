@@ -102,11 +102,11 @@
 \ProvideDocumentCommand{\integerRange}{m m}{
     \ummGeneralBracket{\{}{\}}{#1, \ldots, #2}
 }
-\ProvideDocumentCommand{\bra}{m}{
-    \ummGeneralBracket{\langle}{|}{#1}
+\ProvideDocumentCommand{\tanSpace}{o m}{
+    \IfNoValueTF{#1}{T}{T_{#1}}{#2}
 }
-\ProvideDocumentCommand{\ket}{m}{
-    \ummGeneralBracket{|}{\rangle}{#1}
+\ProvideDocumentCommand{\cotanSpace}{o m}{
+    \IfNoValueTF{#1}{T^*}{T^*_{#1}}{#2}
 }
 
 % geometric/topological sets
@@ -195,15 +195,21 @@
 \ProvideDocumentCommand{\floor}{s m}{
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lfloor}{\rfloor}{#2}
 }
-\ProvideDocumentCommand{\support}{o}{
-    \mathrm{supp} \IfNoValueF{#1}{\, #1}
+\ProvideDocumentCommand{\support}{s m}{
+    \IfBooleanTF{#1}{
+        \mathrm{supp}
+    }{
+        \overline{\mathrm{supp}}
+    }
+    \, #2
 }
 \ProvideDocumentCommand{\indicator}{s m}{
     {\IfBooleanTF{#1}{\mathbf{1}}{\chi}_{#2}}
 }
-\ProvideDocumentCommand{\sgn}{}{
-    \mathrm{sgn}
-}
+% \ProvideDocumentCommand{\sgn}{}{
+%     \mathrm{sgn}
+% }
+\DeclareMathOperator{\sgn}{sgn}
 \ProvideDocumentCommand{\summation}{s m m m}{
     \sum\IfBooleanT{#1}{\limits}_{#2 = #3}^{#4}
 }
@@ -216,12 +222,21 @@
 \ProvideDocumentCommand{\dual}{m}{
     {#1}^*
 }
-\ProvideDocumentCommand{\image}{}{
-    \mathrm{Im}\, 
+% \ProvideDocumentCommand{\image}{}{
+%     \mathrm{Im}\, 
+% }
+\DeclareMathOperator{\image}{Im}
+% \ProvideDocumentCommand{\idenMap}{}{
+%     \mathrm{Id}\,
+% }
+\DeclareMathOperator{\idenMap}{Id}
+\ProvideDocumentCommand{\bra}{m}{
+    \ummGeneralBracket{\langle}{|}{#1}
 }
-\ProvideDocumentCommand{\idenMap}{}{
-    \mathrm{Id}\,
+\ProvideDocumentCommand{\ket}{m}{
+    \ummGeneralBracket{|}{\rangle}{#1}
 }
+\DeclareMathOperator{\nullity}{nullity}
 
 % usual differential operators - function
 \ProvideDocumentCommand{\derivativeD}{O{}}{
@@ -253,24 +268,27 @@
 \ProvideDocumentCommand{\grad}{O{} O{}}{
     {\nabla_{#1}^{#2}}
 }
-\ProvideDocumentCommand{\gradText}{}{
-    \mathrm{grad}
-}
+% \ProvideDocumentCommand{\gradText}{}{
+%     \mathrm{grad}
+% }
+\DeclareMathOperator{\gradText}{grad}
 \ProvideDocumentCommand{\divergence}{O{}}{
     \nabla_{#1} \! \cdot
 }
 \ProvideDocumentCommand{\divergenceD}{O{}}{
     \partial_{#1} \! \cdot
 }
-\ProvideDocumentCommand{\divergenceText}{}{
-    \mathrm{div}
-}
+% \ProvideDocumentCommand{\divergenceText}{}{
+%     \mathrm{div}
+% }
+\DeclareMathOperator{\divergenceText}{div}
 \ProvideDocumentCommand{\curl}{O{}}{
     {\nabla_{#1} \! \times \!}
 }
-\ProvideDocumentCommand{\curlText}{}{
-    \mathrm{curl}
-}
+% \ProvideDocumentCommand{\curlText}{}{
+%     \mathrm{curl}
+% }
+\DeclareMathOperator{\curlText}{curl}
 \ProvideDocumentCommand{\dirac}{s >{\SplitList{ ; }}m}{
     \begingroup
     \newcommand{\ummTempDirac}[1]{\delta_{##1}}

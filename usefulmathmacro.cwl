@@ -48,8 +48,10 @@
 \spanSet{set}#m
 \spanSet*{set}#m
 \integerRange{start}{end}#m
-\bra{arg}m
-\ket{arg}m
+\tanSpace[point]{manifold}#m
+\tanSpace{manifold}#m
+\cotanSpace[point]{manifold}#m
+\cotanSpace{manifold}#m
 # --------------------
 # geometric/topological sets
 # --------------------
@@ -99,8 +101,8 @@
 \ceil{arg}#m
 \floor*{arg}#m
 \floor{arg}#m
-\support#m
-\support[func]#m
+\support*{func}#m
+\support{func}#m
 \indicator{set}#m
 \indicator*{set}#m
 \sgn#m
@@ -113,6 +115,9 @@
 \dual{space}#m
 \image#m
 \idenMap#m
+\bra{arg}m
+\ket{arg}m
+\nullity#m
 # --------------------
 # usual differential operators - function
 # --------------------
