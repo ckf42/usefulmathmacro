@@ -120,6 +120,7 @@
 \bra{arg}m
 \ket{arg}m
 \nullity#m
+\rank#m
 # --------------------
 # usual differential operators - function
 # --------------------
