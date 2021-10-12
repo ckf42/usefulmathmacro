@@ -39,7 +39,7 @@
 \torus[dim]#m
 \setBuilder{obj}#m
 \setBuilder{obj}[cond]#m
-\setBuilder[sep-|]{obj}[cond]#m
+\setBuilder[sepdelim-|]{obj}[cond]#m
 \funcDef{funcName}{domain}{codomain}#m
 \interval(leftopen-neginfty)(rightopen-posinfty)#m
 \interval[leftclose][rightclose]#m
@@ -52,6 +52,8 @@
 \tanSpace{manifold}#m
 \cotanSpace[point]{manifold}#m
 \cotanSpace{manifold}#m
+\polyFunc{deg}#m
+\polyFunc{deg}[field]#m
 # --------------------
 # geometric/topological sets
 # --------------------

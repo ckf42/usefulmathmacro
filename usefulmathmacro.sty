@@ -108,6 +108,9 @@
 \ProvideDocumentCommand{\cotanSpace}{o m}{
     \IfNoValueTF{#1}{T^*}{T^*_{#1}}{#2}
 }
+\ProvideDocumentCommand{\polyFunc}{m o}{
+    P_{#1} \IfNoValueF{#2}{(#2)}
+}
 
 % geometric/topological sets
 \ProvideDocumentCommand{\metricBall}{O{1} o}{
