@@ -55,6 +55,21 @@
 \polyFunc{deg}#m
 \polyFunc{deg}[field]#m
 # --------------------
+# matrix spaces
+# --------------------
+\generalLinearGp{n}#m
+\generalLinearGp{n}[field]#m
+\specialLinearGp{n}#m
+\specialLinearGp{n}[field]#m
+\orthogonalGp{n}#m
+\orthogonalGp{n}[field]#m
+\specialOrthogonalGp{n}#m
+\specialOrthogonalGp{n}[field]#m
+\unitaryGp{n}#m
+\unitaryGp{n}[field]#m
+\specialUnitaryGp{n}#m
+\specialUnitaryGp{n}[field]#m
+# --------------------
 # geometric/topological sets
 # --------------------
 \metricBall#m

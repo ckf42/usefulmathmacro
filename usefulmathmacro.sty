@@ -112,6 +112,26 @@
     P_{#1} \IfNoValueF{#2}{(#2)}
 }
 
+% matrix spaces
+\ProvideDocumentCommand{\generalLinearGp}{m o}{
+    \mathrm{GL}(#1 \IfNoValueF{#2}{, #2})
+}
+\ProvideDocumentCommand{\specialLinearGp}{m o}{
+    \mathrm{SL}(#1 \IfNoValueF{#2}{, #2})
+}
+\ProvideDocumentCommand{\orthogonalGp}{m o}{
+    \mathrm{O}(#1 \IfNoValueF{#2}{, #2})
+}
+\ProvideDocumentCommand{\specialOrthogonalGp}{m o}{
+    \mathrm{O}(#1 \IfNoValueF{#2}{, #2})
+}
+\ProvideDocumentCommand{\unitaryGp}{m o}{
+    \mathrm{U}(#1 \IfNoValueF{#2}{, #2})
+}
+\ProvideDocumentCommand{\specialUnitaryGp}{m o}{
+    \mathrm{SU}(#1 \IfNoValueF{#2}{, #2})
+}
+
 % geometric/topological sets
 \ProvideDocumentCommand{\metricBall}{O{1} o}{
     {B_{#1}} \IfNoValueF{#2}{\!\left( {#2} \right)}
