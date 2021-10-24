@@ -87,6 +87,7 @@
 \colVect{%<col1%>;%<...%>}#m
 \colVect[%<type-p%>]{%<col1%>;%<...%>}#m
 \idenMatrix#m
+\idenMatrix#m
 \idenMatrix[sub]#m
 # --------------------
 # usual functions

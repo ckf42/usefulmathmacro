@@ -103,10 +103,10 @@
     \ummGeneralBracket{\{}{\}}{#1, \ldots, #2}
 }
 \ProvideDocumentCommand{\tanSpace}{o m}{
-    \IfNoValueTF{#1}{T}{T_{#1}}{#2}
+    \IfNoValueTF{#1}{\mathrm{T}}{\mathrm{T}_{#1}}{#2}
 }
 \ProvideDocumentCommand{\cotanSpace}{o m}{
-    \IfNoValueTF{#1}{T^*}{T^*_{#1}}{#2}
+    \IfNoValueTF{#1}{\mathrm{T}^*}{\mathrm{T}^*_{#1}}{#2}
 }
 \ProvideDocumentCommand{\polyFunc}{m o}{
     P_{#1} \IfNoValueF{#2}{(#2)}
