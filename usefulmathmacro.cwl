@@ -48,10 +48,6 @@
 \spanSet{set}#m
 \spanSet*{set}#m
 \integerRange{start}{end}#m
-\tanSpace[point]{manifold}#m
-\tanSpace{manifold}#m
-\cotanSpace[point]{manifold}#m
-\cotanSpace{manifold}#m
 \polyFunc{deg}#m
 \polyFunc{deg}[field]#m
 # --------------------
@@ -179,6 +175,16 @@
 # --------------------
 \integral{lower}{upper}#m
 \integralVar{var}#m
+# --------------------
+# differential geometry opearations
+# --------------------
+\tanSpace[point]{manifold}#m
+\tanSpace{manifold}#m
+\cotanSpace[point]{manifold}#m
+\cotanSpace{manifold}#m
+\pushforward{obj}#m
+\pullback{obj}#m
+\lieBracket{arg1}{arg2}#m
 # --------------------
 # function classes
 # --------------------

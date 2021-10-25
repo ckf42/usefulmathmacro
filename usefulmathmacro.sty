@@ -102,12 +102,6 @@
 \ProvideDocumentCommand{\integerRange}{m m}{
     \ummGeneralBracket{\{}{\}}{#1, \ldots, #2}
 }
-\ProvideDocumentCommand{\tanSpace}{o m}{
-    \IfNoValueTF{#1}{\mathrm{T}}{\mathrm{T}_{#1}}{#2}
-}
-\ProvideDocumentCommand{\cotanSpace}{o m}{
-    \IfNoValueTF{#1}{\mathrm{T}^*}{\mathrm{T}^*_{#1}}{#2}
-}
 \ProvideDocumentCommand{\polyFunc}{m o}{
     P_{#1} \IfNoValueF{#2}{(#2)}
 }
@@ -335,7 +329,22 @@
 \ProvideDocumentCommand{\integralVar}{m}{
     \mathrm{d} {#1}
 }
-
+% differential geometry opearations 
+\ProvideDocumentCommand{\tanSpace}{o m}{
+    \IfNoValueTF{#1}{\mathrm{T}}{\mathrm{T}_{#1}}{#2}
+}
+\ProvideDocumentCommand{\cotanSpace}{o m}{
+    \IfNoValueTF{#1}{\mathrm{T}^*}{\mathrm{T}^*_{#1}}{#2}
+}
+\ProvideDocumentCommand{\pushforward}{m}{
+    {{#1}_{*}}
+}
+\ProvideDocumentCommand{\pullback}{m}{
+    {{#1}^{*}}
+}
+\ProvideDocumentCommand{\lieBracket}{m m}{
+    \ummGeneralBracket{[}{]}{#1, #2}
+}
 % function classes
 \ProvideDocumentCommand{\continuousFunc}{O{0} O{} o o}{
     {\mathit{C}_{#2}^{#1}} \IfNoValueF{#3}{
