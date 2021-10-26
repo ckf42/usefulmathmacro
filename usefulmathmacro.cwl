@@ -182,6 +182,7 @@
 \tanSpace{manifold}#m
 \cotanSpace[point]{manifold}#m
 \cotanSpace{manifold}#m
+\differential{obj}#m
 \pushforward{obj}#m
 \pullback{obj}#m
 \lieBracket{arg1}{arg2}#m

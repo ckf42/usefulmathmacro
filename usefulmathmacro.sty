@@ -336,6 +336,9 @@
 \ProvideDocumentCommand{\cotanSpace}{o m}{
     \IfNoValueTF{#1}{\mathrm{T}^*}{\mathrm{T}^*_{#1}}{#2}
 }
+\ProvideDocumentCommand{\differential}{m}{
+    \mathrm{d} #1
+}
 \ProvideDocumentCommand{\pushforward}{m}{
     {{#1}_{*}}
 }
