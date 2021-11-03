@@ -255,6 +255,12 @@
 }
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\rank}{rank}
+\ProvideDocumentCommand{\nullSpace}{m}{
+    \mathsf{N}\ummGeneralBracket{(}{)}{#1}
+}
+\ProvideDocumentCommand{\range}{m}{
+    \mathsf{R}\ummGeneralBracket{(}{)}{#1}
+}
 
 % usual differential operators - function
 \ProvideDocumentCommand{\derivativeD}{O{}}{

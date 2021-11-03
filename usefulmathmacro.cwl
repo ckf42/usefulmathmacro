@@ -133,6 +133,8 @@
 \ket{arg}m
 \nullity#m
 \rank#m
+\nullSpace{op}#m
+\range{op}#m
 # --------------------
 # usual differential operators - function
 # --------------------
