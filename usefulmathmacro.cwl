@@ -96,6 +96,7 @@
 \opNorm*{arg}#m
 \opNorm{arg}#m
 \innerProd{arg1}{arg2}#m
+\innerProd*{arg1}{arg2}#m
 \evalAt{func}{evalpt}#m
 \trace#m
 \trace[arg]#m
@@ -126,7 +127,7 @@
 \product*{idx}{beginval}{endval}#m
 \chevron*{arg}#m
 \chevron{arg}#m
-\dual{space}#m
+\dual{object}#m
 \image#m
 \idenMap#m
 \bra{arg}m
@@ -193,23 +194,23 @@
 # --------------------
 \continuousFunc#m
 \continuousFunc[upper-0]#m
-\continuousFunc[upper-0][][set]#m
-\continuousFunc[upper-0][lower][set][valset]#m
+\continuousFunc[upper-0][][domain]#m
+\continuousFunc[upper-0][lower][domain][codomain]#m
 \smoothFunc#m
-\smoothFunc[][set]#m
-\smoothFunc[lower][set][valset]#m
+\smoothFunc[][domain]#m
+\smoothFunc[lower][domain][codomain]#m
 \analyticFunc#m
-\analyticFunc[][set]#m
-\analyticFunc[lower][set][valset]#m
+\analyticFunc[][domain]#m
+\analyticFunc[lower][domain][codomain]#m
 \lpFunc{upper}#m
-\lpFunc{upper}[set]#m
-\lpFunc{upper}[lower][set][valset]#m
+\lpFunc{upper}[domain]#m
+\lpFunc{upper}[lower][domain][codomain]#m
 \sobolevFunc{k}{p}#m
-\sobolevFunc{k}{p}[][set]#m
-\sobolevFunc{k}{p}[lower][set]#m
+\sobolevFunc{k}{p}[][domain]#m
+\sobolevFunc{k}{p}[lower][domain]#m
 \sobolevHFunc{k}#m
-\sobolevHFunc{k}[][set]#m
-\sobolevHFunc{k}[lower][set]#m
+\sobolevHFunc{k}[][domain]#m
+\sobolevHFunc{k}[lower][domain]#m
 # --------------------
 # complexity
 # --------------------

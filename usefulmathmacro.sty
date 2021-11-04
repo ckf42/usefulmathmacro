@@ -178,8 +178,12 @@
 \ProvideDocumentCommand{\opNorm}{s m}{
     \IfBooleanTF{#1}{\norm*}{\norm}[\text{op}]{#2}
 }
-\ProvideDocumentCommand{\innerProd}{m m}{
-    \ummGeneralBracket{\langle}{\rangle}{{#1}, \, {#2}}
+\ProvideDocumentCommand{\innerProd}{s m m}{
+    \IfBooleanTF{#1}{
+        \ummGeneralBracket{(}{)}{{#2}, \, {#3}}
+    }{
+        \ummGeneralBracket{\langle}{\rangle}{{#2}, \, {#3}}
+    }
 }
 \ProvideDocumentCommand{\evalAt}{m m}{
     \ummGeneralBracket{.}{|}{{#1}}_{#2}
