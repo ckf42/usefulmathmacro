@@ -220,6 +220,12 @@
 \smallOmega{func}#m
 \bigTheta{func}#m
 # --------------------
+# morphisms
+# --------------------
+\surjTo#m
+\injTo#m
+\bijTo#m
+# --------------------
 # environments
 # --------------------
 \begin{labledproof}{label%ref}#n\proof
