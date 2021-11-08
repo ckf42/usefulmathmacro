@@ -57,7 +57,7 @@
         \IfNoValueTF{#4}{
             \left\{ \protect\vphantom{#3} \right.
             #3 
-            \left. \protect\vphantom{#3} \right\}  
+            \left. \protect\vphantom{#3} \right\} 
         }{
             \left\{ \protect\vphantom{#3 #4} \right.\! #3 
             \left. \protect\vphantom{#3} \middle#2 \protect\vphantom{#4} \right.
@@ -66,8 +66,8 @@
         }
     }
 }
-\ProvideDocumentCommand{\funcDef}{m m m}{
-    {#1} : {#2} \rightarrow {#3}
+\ProvideDocumentCommand{\funcDef}{O{\to} m m m}{
+    {#2} : {#3} #1 {#4}
 }
 \ProvideDocumentCommand{\interval}{ o d() o d() }{
     \begingroup
