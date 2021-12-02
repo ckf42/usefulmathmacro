@@ -99,6 +99,13 @@
         \ummGeneralBracket{(}{)}{#2}
     }
 }
+\ProvideDocumentCommand{\spanSetOfEle}{s m}{
+    \IfBooleanTF{#1}{
+        \spanSet*{\setBuilder{#2}}
+    }{
+        \spanSet{\setBuilder{#2}}
+    }
+}
 \ProvideDocumentCommand{\integerRange}{m m}{
     \ummGeneralBracket{\{}{\}}{#1, \ldots, #2}
 }
@@ -264,6 +271,9 @@
 }
 \ProvideDocumentCommand{\range}{m}{
     \mathsf{R}\ummGeneralBracket{(}{)}{#1}
+}
+\ProvideDocumentCommand{\conju}{m}{
+    \overline{#1}
 }
 
 % usual differential operators - function

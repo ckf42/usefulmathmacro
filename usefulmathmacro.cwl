@@ -48,6 +48,8 @@
 \interval(leftopen)[rightclose]#m
 \spanSet{set}#m
 \spanSet*{set}#m
+\spanSetOfEle{elems}#m
+\spanSetOfEle*{elems}#m
 \integerRange{start}{end}#m
 \polyFunc{deg}#m
 \polyFunc{deg}[field]#m
@@ -137,6 +139,7 @@
 \rank#m
 \nullSpace{op}#m
 \range{op}#m
+\conju{number}#m
 # --------------------
 # usual differential operators - function
 # --------------------
