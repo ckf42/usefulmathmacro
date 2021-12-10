@@ -229,6 +229,7 @@
 \surjTo#m
 \injTo#m
 \bijTo#m
+\weakTo#m
 # --------------------
 # environments
 # --------------------
