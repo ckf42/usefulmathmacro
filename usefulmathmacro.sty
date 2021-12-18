@@ -66,8 +66,14 @@
         }
     }
 }
-\ProvideDocumentCommand{\funcDef}{O{\to} m m m}{
-    {#2} : {#3} #1 {#4}
+\ProvideDocumentCommand{\funcDef}{o m m O{\to} m}{
+    \IfNoValueTF{#1}{
+        % compatibility
+        {#2} : {#3} #4 {#5}
+    }{
+        % only to track function definitions
+        {#2} : {#3} #1 {#5}
+    }
 }
 \ProvideDocumentCommand{\interval}{ o d() o d() }{
     \begingroup

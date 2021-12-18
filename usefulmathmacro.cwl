@@ -41,7 +41,8 @@
 \setBuilder{obj}[cond]#m
 \setBuilder[sepdelim-|]{obj}[cond]#m
 \funcDef{funcName}{domain}{codomain}#m
-\funcDef[arrow-to]{funcName}{domain}{codomain}#m
+# \funcDef[arrow-to]{funcName}{domain}{codomain}#m
+\funcDef{funcName}{domain}[arrow-to]{codomain}#m
 \interval(leftopen-neginfty)(rightopen-posinfty)#m
 \interval[leftclose][rightclose]#m
 \interval[leftclose](rightopen-posinfty)#m
