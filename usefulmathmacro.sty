@@ -355,6 +355,7 @@
 \ProvideDocumentCommand{\integralVar}{m}{
     \mathrm{d} {#1}
 }
+\providecommand{\dd}[1]{\integralVar{#1}} %alias
 % differential geometry opearations 
 \ProvideDocumentCommand{\tanSpace}{o m}{
     \IfNoValueTF{#1}{\mathrm{T}}{\mathrm{T}_{#1}}{#2}

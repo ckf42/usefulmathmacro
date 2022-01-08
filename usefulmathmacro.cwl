@@ -183,6 +183,7 @@
 # --------------------
 \integral{lower}{upper}#m
 \integralVar{var}#m
+\dd{var}#m
 # --------------------
 # differential geometry opearations
 # --------------------
