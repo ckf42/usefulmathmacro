@@ -19,7 +19,7 @@ These macros are written assuming these packages are available (although, they m
 
 ## NOTE
 
-Breaking change in commit cf5de61c70b2683cf2bd9388797fd3d11a9bf481 with some macros syntax changed or deprecated. To use those macros, use the [legacy branch](https://github.com/ckf42/usefulmathmacro/commit/b24397044d0b80744425f17fd58e1e5fdbe349ae)
+Breaking change in commit [cf5de6](https://github.com/ckf42/usefulmathmacro/commit/cf5de61c70b2683cf2bd9388797fd3d11a9bf481) with some macros syntax changed or deprecated. To use those macros, use the [legacy branch](https://github.com/ckf42/usefulmathmacro/tree/legacy)
 
 ## License
 
