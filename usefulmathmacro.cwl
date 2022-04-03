@@ -157,13 +157,21 @@
 # --------------------
 \ordinaryD{var}#m
 \ordinaryD{var}[func]#m
+\ordinaryD[order]{var}#m
+\ordinaryD[order]{var}[func]#m
 \ordinaryD*{var}#m
 \ordinaryD*{var}[func]#m
+\ordinaryD*[order]{var}#m
+\ordinaryD*[order]{var}[func]#m
 \od{var}#m
 \partialD{var}#m
 \partialD{var}[func]#m
+\partialD[order]{var}#m
+\partialD[order]{var}[func]#m
 \partialD*{var}#m
 \partialD*{var}[func]#m
+\partialD*[order]{var}#m
+\partialD*[order]{var}[func]#m
 \pd{var}#m
 \grad[var]#m
 \grad*[var]#m

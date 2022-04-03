@@ -18,7 +18,7 @@
     }
 }
 \ProvideDocumentCommand{\ummHomSet}{O{\mathrm{Hom}} m o}{
-    {#1 (#2 \IfNoValueF{#2}{, #3})}
+    {#1 (#2 \IfNoValueF{#3}{, #3})}
 }
 \ProvideDocumentCommand{\ummFuncClass}{m m o}{
     {{#1}_{\IfNoValueF{#3}{#3}}^{#2}}
@@ -122,9 +122,6 @@
         }
     }
 }
-\ProvideDocumentCommand{\polyFunc}{o o}{
-    {P_{#1} \IfNoValueF{#2}{(#2)}}
-}
 
 % matrix sets
 \providecommand{\matrixSpace}[2]{ {M_{{#1} \times {#2}}} }
@@ -209,19 +206,19 @@
 \DeclareMathOperator{\image}{Im}
 
 % calculus operators
-\ProvideDocumentCommand{\ordinaryD}{s m o}{
+\ProvideDocumentCommand{\ordinaryD}{s o m o}{
     \IfBooleanTF{#1}{
-        \frac{\mathrm{d} \IfNoValueF{#3}{#3}}{\mathrm{d} #2}
+        \frac{\mathrm{d}^{\IfNoValueF{#2}{#2}} \IfNoValueF{#4}{#4}}{{\mathrm{d} #3}^{\IfNoValueF{#2}{#2}}}
     }{
-        \frac{\mathrm{d}}{\mathrm{d} #2} \IfNoValueF{#3}{#3}
+        \frac{\mathrm{d}^{\IfNoValueF{#2}{#2}}}{{\mathrm{d} #3}^{\IfNoValueF{#2}{#2}}} \IfNoValueF{#4}{#4}
     }
 }
 \providecommand{\od}[1]{\ordinaryD{#1}}
-\ProvideDocumentCommand{\partialD}{s m o}{
+\ProvideDocumentCommand{\partialD}{s o m o}{
     \IfBooleanTF{#1}{
-        \frac{\partial \IfNoValueF{#3}{#3}}{\partial #2}
+        \frac{\partial^{\IfNoValueF{#2}{#2}} \IfNoValueF{#4}{#4}}{{\partial #3}^{\IfNoValueF{#2}{#2}}}
     }{
-        \frac{\partial}{\partial #2} \IfNoValueF{#3}{#3}
+        \frac{\partial^{\IfNoValueF{#2}{#2}}}{{\partial #3}^{\IfNoValueF{#2}{#2}}} \IfNoValueF{#4}{#4}
     }
 }
 \providecommand{\pd}[1]{\partialD{#1}}
@@ -273,4 +270,7 @@
 }
 \ProvideDocumentCommand{\sobolevHFunc}{m o}{
     \ummFuncClass{\mathit{H}}{#1}[#2]
+}
+\ProvideDocumentCommand{\polyFunc}{o o}{
+    {P_{#1} \IfNoValueF{#2}{(#2)}}
 }
