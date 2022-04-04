@@ -52,8 +52,8 @@
 \indicator#m
 \indicator[lower]#m
 \oo#m
-\half#m
-\half[obj]#m
+\halfOf#m
+\halfOf[obj]#m
 
 # --------------------
 # numbers
