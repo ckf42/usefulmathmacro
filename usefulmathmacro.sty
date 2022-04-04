@@ -46,7 +46,7 @@
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\|}{\|}{#2}
 }
 \ProvideDocumentCommand{\innerProd}{s m m}{
-    \IfBooleanTF{#1}{ \parenth({#1}, \, {#2}) }{ \chevron{{#1}, \, {#2}} }
+    \IfBooleanTF{#1}{ \parenth({#2}, \, {#3}) }{ \chevron{{#2}, \, {#3}} }
 }
 \ProvideDocumentCommand{\ceil}{s m}{
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lceil}{\rceil}{#2}
@@ -272,5 +272,5 @@
     \ummFuncClass{\mathit{H}}{#1}[#2]
 }
 \ProvideDocumentCommand{\polyFunc}{o o}{
-    {P_{#1} \IfNoValueF{#2}{(#2)}}
+    {\mathsf{P}_{#1} \IfNoValueF{#2}{(#2)}}
 }

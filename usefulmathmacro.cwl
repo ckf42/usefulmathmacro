@@ -1,4 +1,4 @@
-# refer to https://htmlpreview.github.io/?https://github.com/texstudio-org/texstudio/master/utilities/manual/usermanual_en.html#CWLDESCRIPTION
+# refer to https://htmlpreview.github.io/?https%3A%2F%2Fgithub.com%2Ftexstudio-org%2Ftexstudio%2Fmaster%2Futilities%2Fmanual%2Fusermanual_en.html=#CWLDESCRIPTION
 #include:amsmath
 #include:amssymb
 #include:xparse
@@ -89,9 +89,6 @@
 \setBuilder*{obj}#m
 \setBuilder*{obj}[cond]#m
 \setBuilder*[sepdelim-|]{obj}[cond]#m
-\polyFunc[deg]#m
-\polyFunc[][field]#m
-\polyFunc[deg][field]#m
 
 # --------------------
 # matrix sets
@@ -200,4 +197,6 @@
 \sobolevWFunc{k}{p}[lower]#m
 \sobolevHFunc{p}#m
 \sobolevHFunc{p}[lower]#m
+\polyFunc[deg]#m
+\polyFunc[deg][field]#m
 
