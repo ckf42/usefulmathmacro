@@ -21,7 +21,7 @@
     {#1 (#2 \IfNoValueF{#3}{, #3})}
 }
 \ProvideDocumentCommand{\ummFuncClass}{m m o}{
-    {{#1}_{\IfNoValueF{#3}{#3}}^{#2}}
+    {{#1}_{\IfNoValueF{#3}{\,#3}}^{\,#2}}
 }
 
 % brackets
@@ -234,14 +234,14 @@
     \IfBooleanTF{#1}{
         \mathrm{div} \!
     }{
-        \grad[#2] \! \cdot
+        \grad[#2] \cdot
     }
 }
 \ProvideDocumentCommand{\curl}{s O{}}{
     \IfBooleanTF{#1}{
         \mathrm{curl} \!
     }{
-        \grad[#2] \! \times \!
+        \grad[#2] \times \!
     }
 }
 \providecommand{\integral}[2]{ {\int_{#1}^{#2}} }
