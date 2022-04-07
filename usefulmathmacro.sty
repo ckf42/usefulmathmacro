@@ -21,7 +21,7 @@
     {#1 (#2 \IfNoValueF{#3}{, #3})}
 }
 \ProvideDocumentCommand{\ummFuncClass}{m m o}{
-    {{#1}_{\IfNoValueF{#3}{\,#3}}^{\,#2}}
+    {{#1}_{\IfNoValueF{#3}{\,#3}}^{#2}}
 }
 
 % brackets
@@ -82,7 +82,7 @@
 \ProvideDocumentCommand{\idenMap}{O{}}{
     {\mathrm{Id}_{#1}}
 }
-\providecommand{\indicator}[1]{ {\chi_{#1}} }
+\ProvideDocumentCommand{\indicator}{o}{ {\chi_{#1}} }
 \providecommand{\oo}{\infty}
 \ProvideDocumentCommand{\halfOf}{O{1}}{ {\frac{#1}{2}} }
 \ProvideDocumentCommand{\half}{O{1}}{ \halfOf[#1] } % compatibility
@@ -135,7 +135,7 @@
 
 % linear algebra
 \ProvideDocumentCommand{\spanSet}{s m}{
-    \mathrm{Span}
+    \mathrm{Span} \!
     \IfBooleanTF{#1}{
         \parenth*(#2)
     }{
