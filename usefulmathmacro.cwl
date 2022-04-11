@@ -141,6 +141,7 @@
 \injTo#m
 \bijTo#m
 \weakTo#m
+\unifTo#m
 
 # --------------------
 # operators
