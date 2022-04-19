@@ -100,7 +100,20 @@
 \providecommand{\QQ}{ \rational } %alias
 
 % numbers - variant
-\providecommand{\positiveReal}{ {\real^+} }
+\ProvideDocumentCommand{\positiveReal}{s}{
+    \IfBooleanTF{#1}{
+        (0, \infty] 
+    }{
+        \real^+
+    }
+}
+\ProvideDocumentCommand{\positiveReal}{s}{
+    \IfBooleanTF{#1}{
+        (0, \infty] 
+    }{
+        \real^+
+    }
+}
 \providecommand{\positiveInteger}{ {\integer^+} }
 
 % common sets

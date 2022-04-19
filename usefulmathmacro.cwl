@@ -73,6 +73,9 @@
 # numbers - variant
 # --------------------
 \positiveReal#m
+\positiveReal*#m
+\nonnegativeReal#m
+\nonnegativeReal*#m
 \positiveInteger#m
 
 # --------------------
