@@ -107,11 +107,11 @@
         \real^+
     }
 }
-\ProvideDocumentCommand{\positiveReal}{s}{
+\ProvideDocumentCommand{\nonnegativeReal}{s}{
     \IfBooleanTF{#1}{
-        (0, \infty] 
+        [0, \infty] 
     }{
-        \real^+
+        [0, \infty)
     }
 }
 \providecommand{\positiveInteger}{ {\integer^+} }
