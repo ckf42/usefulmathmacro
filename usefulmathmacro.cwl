@@ -184,6 +184,7 @@
 \dd{var}#m
 \integralVar{var}#m
 \integralVar{%<var%>;%<...%>}#m
+\integration{var}{lower}{upper}{func}#m
 
 # --------------------
 # function spaces

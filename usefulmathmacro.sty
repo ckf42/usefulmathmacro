@@ -266,6 +266,9 @@
     \,\ProcessList{#1}{\ummTempIntVarLst}
     \endgroup
 }
+\ProvideDocumentCommand{\integration}{m m m m}{ %alias
+    \integral{#2}{#3} #4 \integralVar{#1}
+}
 
 % function spaces
 \ProvideDocumentCommand{\continuousFunc}{O{0} o}{
