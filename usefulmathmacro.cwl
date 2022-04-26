@@ -54,6 +54,7 @@
 \oo#m
 \halfOf#m
 \halfOf[obj]#m
+\oneOver{obj}#m
 
 # --------------------
 # numbers
