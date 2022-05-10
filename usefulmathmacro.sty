@@ -174,9 +174,8 @@
 \ProvideDocumentCommand{\tensorPower}{O{2} m}{
     {{#2}^{\otimes {#1}}}
 }
-\ProvideDocumentCommand{\transpose}{O{\mathsf{T}} m}{
-    {{#2}^{#1}}
-}
+\providecommand{\transpose}{ \mathsf{T} }
+\providecommand{\conjuTranspose}{ \mathsf{H} }
 \ProvideDocumentCommand{\idenMatrix}{O{}}{ {I_{#1}} }
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\trace}{tr}

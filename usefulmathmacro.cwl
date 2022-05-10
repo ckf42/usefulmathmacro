@@ -116,8 +116,8 @@
 \colVect[%<type-p%>]{%<col1%>;%<...%>}#m
 \tensorPower{arg}#m
 \tensorPower[upper-2]{arg}#m
-\transpose{arg}#m
-\transpose[sym-mathsfT]{arg}#m
+\transpose#m
+\conjuTranspose#m
 \idenMatrix#m
 \idenMatrix[lower]#m
 \nullity#m
