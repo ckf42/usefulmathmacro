@@ -206,3 +206,10 @@
 \polyFunc[deg]#m
 \polyFunc[deg][field]#m
 
+# --------------------
+# probability
+# --------------------
+\prob{event}#m
+\prob{event}[cond]#m
+\expect{randvar}#m
+\expect{randvar}[cond]#m

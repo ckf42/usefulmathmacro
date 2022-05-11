@@ -8,18 +8,28 @@
 \RequirePackage{xparse}
 
 % auxuily helper function
-\ProvideDocumentCommand{\ummGeneralBracket}{s m m m}{
+% 1:star 2:{left-delim} 3:[mid-delim] 4:{right-delim} 5:{content} 6:[second-content]
+\ProvideDocumentCommand{\ummGeneralBracket}{s m o m m o}{ 
     \IfBooleanTF{#1}{
-        \left#2 #4 \right#3
+        \IfNoValueTF{#6}{ \left#2 #5 \right#4 }{ \left#2 #5 \middle#3 #6 \right#4 }
     }{
-        \left#2 \protect\vphantom{#4} \right. \!
-        #4
-        \! \left. \protect\vphantom{#4} \right#3
+        \IfNoValueTF{#6}{
+            \left#2 \protect\vphantom{#5} \right.
+            #5 
+            \left. \protect\vphantom{#5} \right#4 
+        }{
+            \left#2 \protect\vphantom{#5 #6} \right. #5 
+            \left. \protect\vphantom{#5} \middle#3 \protect\vphantom{#6} \right.
+            \allowbreak
+            #6 \left. \protect\vphantom{#5 #6} \right#4
+        }
     }
 }
+% 1:[name] 2:{dom} 3:[codom]
 \ProvideDocumentCommand{\ummHomSet}{O{\mathrm{Hom}} m o}{
     {#1 (#2 \IfNoValueF{#3}{, #3})}
 }
+% 1:{sym} 2:{lower} 3:[upper]
 \ProvideDocumentCommand{\ummFuncClass}{m m o}{
     {{#1}_{\IfNoValueF{#3}{\,#3}}^{#2}}
 }
@@ -122,20 +132,7 @@
 \ProvideDocumentCommand{\unitSphere}{O{1}}{ {S^{#1}} }
 \providecommand{\integerRange}[2]{ \braces{#1, \ldots, #2} }
 \ProvideDocumentCommand{\setBuilder}{s O{|} m o}{ 
-    \IfBooleanTF{#1}{
-        \IfNoValueTF{#4}{ \left\{ #3 \right\} }{ \left\{ #3 \middle#2 #4 \right\} }
-    }{
-        \IfNoValueTF{#4}{
-            \left\{ \protect\vphantom{#3} \right.
-            #3 
-            \left. \protect\vphantom{#3} \right\} 
-        }{
-            \left\{ \protect\vphantom{#3 #4} \right. #3 
-            \left. \protect\vphantom{#3} \middle#2 \protect\vphantom{#4} \right.
-            \allowbreak
-            #4 \left. \protect\vphantom{#3 #4} \right\}
-        }
-    }
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\{}[#2]{\}}{#3}[#4]
 }
 
 % matrix sets
@@ -181,10 +178,10 @@
 \DeclareMathOperator{\trace}{tr}
 \DeclareMathOperator{\rank}{rank}
 \providecommand{\nullSpace}[1]{
-    \mathsf{N}\ummGeneralBracket{(}{)}{#1}
+    \mathsf{N}\parenth( #1 )
 }
 \providecommand{\range}[1]{
-    \mathsf{R}\ummGeneralBracket{(}{)}{#1}
+    \mathsf{R}\parenth( #1 )
 }
 \ProvideDocumentCommand{\dirac}{s >{\SplitList{ ; }}m}{
     \begingroup
@@ -292,3 +289,12 @@
 \ProvideDocumentCommand{\polyFunc}{o o}{
     {\mathsf{P}_{#1} \IfNoValueF{#2}{(#2)}}
 }
+
+% probabilty
+\ProvideDocumentCommand{\prob}{m o}{
+    \mathrm{P}\ummGeneralBracket*{(}[|]{)}{#1}[#2]
+}
+\ProvideDocumentCommand{\expect}{m o}{
+    \mathbb{E}\ummGeneralBracket*{[}[|]{]}{#1}[#2]
+}
+
