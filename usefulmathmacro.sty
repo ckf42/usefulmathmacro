@@ -14,20 +14,21 @@
 %     the current way is to prefix with a dot (.) 
 %     but then it would not size with \left \right (not sure if it should)
 %     there may be other symbols that have the same issue
-% 1:star 2:{left-delim} 3:[mid-delim] 4:{right-delim} 5:{content} 6:[second-content]
+% 1:* 2:{left-delim} 3:[mid-delim] 4:{right-delim} 5:{content} 6:[second-content]
 \ProvideDocumentCommand{\ummGeneralBracket}{s m o m m o}{ 
     \IfBooleanTF{#1}{
         \IfNoValueTF{#6}{ \left#2 #5 \right#4 }{ \left#2 #5 \middle#3 #6 \right#4 }
     }{
         \IfNoValueTF{#6}{
-            \left#2 \protect\vphantom{#5} \right.
+            \left#2 \protect\vphantom{#5} \right. \!
             #5 
-            \left. \protect\vphantom{#5} \right#4 
+            \! \left. \protect\vphantom{#5} \right#4 
         }{
-            \left#2 \protect\vphantom{#5 #6} \right. #5 
+            \left#2 \protect\vphantom{#5 #6} \right. \!
+            #5 
             \left. \protect\vphantom{#5} \middle#3 \protect\vphantom{#6} \right.
-            \allowbreak
-            #6 \left. \protect\vphantom{#5 #6} \right#4
+            \allowbreak #6
+            \! \left. \protect\vphantom{#5 #6} \right#4
         }
     }
 }
@@ -70,9 +71,7 @@
 \ProvideDocumentCommand{\floor}{s m}{
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lfloor}{\rfloor}{#2}
 }
-\ProvideDocumentCommand{\evalAt}{m m}{
-    {\ummGeneralBracket{.}{|}{#2}_{#1}}
-}
+\providecommand{\evalAt}[2]{ {\ummGeneralBracket{.}{|}{#2}_{#1}} }
 \ProvideDocumentCommand{\inv}{O{1} m}{
     {{#2}^{-#1}}
 }
@@ -136,7 +135,6 @@
 % common sets
 \ProvideDocumentCommand{\torus}{O{}}{ {\mathbb{T}^{#1}} }
 \ProvideDocumentCommand{\unitSphere}{O{1}}{ {S^{#1}} }
-% \providecommand{\integerRange}[2]{ \braces{#1, \ldots, #2} }
 \ProvideDocumentCommand{\integerRange}{s m m}{
     \IfBooleanTF{#1}{\braces*}{\braces}{#1, \ldots, #2}
 }
