@@ -156,18 +156,10 @@
 % linear algebra
 \ProvideDocumentCommand{\spanSet}{s m}{
     \mathrm{Span} \!
-    \IfBooleanTF{#1}{
-        \parenth*(#2)
-    }{
-        \parenth(#2)
-    }
+    \IfBooleanTF{#1}{\parenth*}{\parenth}(#2)
 }
 \ProvideDocumentCommand{\spanSetOfEle}{s m}{
-    \IfBooleanTF{#1}{
-        \spanSet*{\setBuilder{#2}}
-    }{
-        \spanSet{\setBuilder{#2}}
-    }
+    \IfBooleanTF{#1}{\spanSet*}{\spanSet}{\setBuilder{#2}}
 }
 \ProvideDocumentCommand{\colVect}{O{p} >{\SplitList { ; }}m}{
     \begingroup
@@ -187,10 +179,10 @@
 \DeclareMathOperator{\trace}{tr}
 \DeclareMathOperator{\rank}{rank}
 \providecommand{\nullSpace}[1]{
-    \mathsf{N}\parenth( #1 )
+    \mathsf{N}\parenth(#1)
 }
 \providecommand{\range}[1]{
-    \mathsf{R}\parenth( #1 )
+    \mathsf{R}\parenth(#1)
 }
 \ProvideDocumentCommand{\dirac}{s >{\SplitList{ ; }}m}{
     \begingroup
@@ -272,9 +264,7 @@
     \,\ProcessList{#1}{\ummTempIntVarLst}
     \endgroup
 }
-\ProvideDocumentCommand{\integration}{m m m m}{ %alias
-    \integral{#2}{#3} #4 \integralVar{#1}
-}
+\providecommand{\integration}[4]{ \integral{#2}{#3} #4 \integralVar{#1} }
 
 % function spaces
 \ProvideDocumentCommand{\continuousFunc}{O{0} o}{
