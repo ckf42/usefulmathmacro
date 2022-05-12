@@ -87,6 +87,7 @@
 \unitSphere#m
 \unitSphere[dim]#m
 \integerRange{start}{end}#m
+\integerRange*{start}{end}#m
 \setBuilder{obj}#m
 \setBuilder{obj}[cond]#m
 \setBuilder[sepdelim-|]{obj}[cond]#m
@@ -213,3 +214,4 @@
 \prob{event}[cond]#m
 \expect{randvar}#m
 \expect{randvar}[cond]#m
+
