@@ -8,26 +8,36 @@
 # brackets
 # --------------------
 \parenth(arg)#m
+# single line
 \parenth*(arg)#m
 \chevron{arg}#m
+# single line
 \chevron*{arg}#m
 \bracket[arg]#m
+# single line
 \bracket*[arg]#m
 \braces{arg}#m
+# single line
 \braces*{arg}#m
 
 # --------------------
 # common functions
 # --------------------
 \abs{arg}#m
+# single line
 \abs*{arg}#m
 \norm{arg}#m
+# single line
 \norm*{arg}#m
+# round parentheses
 \innerProd{arg1}{arg2}#m
+# angle bracket
 \innerProd*{arg1}{arg2}#m
 \ceil{arg}#m
+# single line
 \ceil*{arg}#m
 \floor{arg}#m
+# single line
 \floor*{arg}#m
 \evalAt{evalPt}{func}#m
 \inv{arg}#m
@@ -35,8 +45,10 @@
 \normalized{arg}#m
 \normalized[normmacro-abs]{arg}#m
 \summation{idx}{beginval}{endval}#m
+# limits
 \summation*{idx}{beginval}{endval}#m
 \product{idx}{beginval}{endval}#m
+# limits
 \product*{idx}{beginval}{endval}#m
 \conju{obj}#m
 \limit{var}#m
@@ -87,12 +99,16 @@
 \unitSphere#m
 \unitSphere[dim]#m
 \integerRange{start}{end}#m
+# single line
 \integerRange*{start}{end}#m
 \setBuilder{obj}#m
 \setBuilder{obj}[cond]#m
 \setBuilder[sepdelim-|]{obj}[cond]#m
+# single line
 \setBuilder*{obj}#m
+# single line
 \setBuilder*{obj}[cond]#m
+# single line
 \setBuilder*[sepdelim-|]{obj}[cond]#m
 
 # --------------------
@@ -110,8 +126,10 @@
 # linear algebra
 # --------------------
 \spanSet{set}#m
+# single line
 \spanSet*{set}#m
 \spanSetOfEle{elems}#m
+# single line
 \spanSetOfEle*{elems}#m
 \colVect{%<col1%>;%<...%>}#m
 \colVect[%<type-p%>]{%<col1%>;%<...%>}#m
@@ -127,7 +145,9 @@
 \nullSpace{op}#m
 \range{op}#m
 \dirac{lower}#m
+# all lower indices
 \dirac{%<lower1%>;%<...%>}#m
+# lower and upper
 \dirac*{%<lower1%>,%<upper1%>;%<...%>}#m
 
 # --------------------
@@ -162,31 +182,43 @@
 \ordinaryD{var}[func]#m
 \ordinaryD[order]{var}#m
 \ordinaryD[order]{var}[func]#m
+# one fraction
 \ordinaryD*{var}#m
+# one fraction
 \ordinaryD*{var}[func]#m
+# one fraction
 \ordinaryD*[order]{var}#m
+# one fraction
 \ordinaryD*[order]{var}[func]#m
 \od{var}#m
 \partialD{var}#m
 \partialD{var}[func]#m
 \partialD[order]{var}#m
 \partialD[order]{var}[func]#m
+# one fraction
 \partialD*{var}#m
+# one fraction
 \partialD*{var}[func]#m
+# one fraction
 \partialD*[order]{var}#m
+# one fraction
 \partialD*[order]{var}[func]#m
 \pd{var}#m
 \grad[var]#m
+# text
 \grad*[var]#m
 \divergence[var]#m
+# text
 \divergence*[var]#m
 \curl[var]#m
+# text
 \curl*[var]#m
 \integral{lower}{upper}#m
 \dd{var}#m
 \integralVar{var}#m
 \integralVar{%<var%>;%<...%>}#m
 \integration{var}{lower}{upper}{func}#m
+\integration*[measure]{var}{lower}{upper}{func}#m
 
 # --------------------
 # function spaces
@@ -200,6 +232,7 @@
 \analyticFunc[lower]#m
 \lpFunc{p}#m
 \lpFunc{p}[lower]#m
+\LlogLFunc#m
 \sobolevWFunc{k}{p}#m
 \sobolevWFunc{k}{p}[lower]#m
 \sobolevHFunc{p}#m
