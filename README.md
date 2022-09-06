@@ -6,6 +6,12 @@ Some LaTeX macros for math
 
 Put the `.sty` file in your texmf tree, in the same way you install a package manually. Alternatively, you can simply `input` the `.sty` file directly in your TeX source.
 
+* TeXLive
+    * run `texhash`
+* MikTeX
+    * Refresh FNDB in MikTeX console; or
+    * run `initexmf -u`
+
 If you use [TexStudio](https://www.texstudio.org/), you can also put the `.cwl` file in your `completion/user` directory.
 
 ## Dependency
