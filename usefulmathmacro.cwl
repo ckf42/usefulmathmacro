@@ -81,6 +81,8 @@
 \NN#m
 \rational#m
 \QQ#m
+\generalField#m
+\FF#m
 
 # --------------------
 # numbers - variant
