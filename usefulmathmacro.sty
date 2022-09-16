@@ -140,7 +140,7 @@
 \ProvideDocumentCommand{\unitSphere}{O{1}}{ {S^{#1}} }
 % \providecommand{\integerRange}[2]{ \braces{#1, \ldots, #2} }
 \ProvideDocumentCommand{\integerRange}{s m m}{
-    \IfBooleanTF{#1}{\braces*}{\braces}{#1, \ldots, #2}
+    \IfBooleanTF{#1}{\braces*}{\braces}{#2, \ldots, #3}
 }
 \ProvideDocumentCommand{\setBuilder}{s O{|} m o}{ 
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\{}[#2]{\}}{#3}[#4]
