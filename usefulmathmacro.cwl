@@ -239,8 +239,9 @@
 \sobolevWFunc{k}{p}[lower]#m
 \sobolevHFunc{p}#m
 \sobolevHFunc{p}[lower]#m
+\polyFunc#m
 \polyFunc[deg]#m
-\polyFunc[deg][field]#m
+# \polyFunc[deg][field]#m # deprecation
 
 # --------------------
 # probability

@@ -330,7 +330,7 @@
 }
 % 1:[deg] 2:[content]
 \ProvideDocumentCommand{\polyFunc}{o o}{
-    {\mathsf{P}_{#1} \IfNoValueF{#2}{(#2)}}
+    {\mathsf{P}_{\IfNoValueF{#1}{#1}} \IfNoValueF{#2}{(#2)}}
 }
 
 % probabilty
