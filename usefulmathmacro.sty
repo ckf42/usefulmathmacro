@@ -298,7 +298,7 @@
     \ummFuncClass{\mathit{H}}{#1}[#2]
 }
 \ProvideDocumentCommand{\polyFunc}{o o}{
-    {\mathsf{P}_{#1} \IfNoValueF{#2}{(#2)}}
+    {\mathsf{P}_{\IfNoValueF{#1}{#1}} \IfNoValueF{#2}{(#2)}}
 }
 
 % probabilty
