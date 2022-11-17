@@ -19,6 +19,10 @@
 \braces{arg}#m
 # single line
 \braces*{arg}#m
+\bra{arg}#m
+\bra*{arg}#m
+\ket{arg}#m
+\ket*{arg}#m
 
 # --------------------
 # common functions
@@ -33,6 +37,7 @@
 \innerProd{arg1}{arg2}#m
 # angle bracket
 \innerProd*{arg1}{arg2}#m
+\braketProd{arg1}{arg2}#m
 \ceil{arg}#m
 # single line
 \ceil*{arg}#m
