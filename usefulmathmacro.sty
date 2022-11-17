@@ -14,20 +14,20 @@
 %     the current way is to prefix with a dot (.) 
 %     but then it would not size with \left \right (not sure if it should)
 %     there may be other symbols that have the same issue
-% 1:star 2:{left-delim} 3:[mid-delim] 4:{right-delim} 5:{content} 6:[second-content]
-\ProvideDocumentCommand{\ummGeneralBracket}{s m o m m o}{ 
+% 1:star 2:{left-delim} 3:{content} 4:[mid-delim] 5:[second-content] 6:{right-delim}
+\ProvideDocumentCommand{\ummGeneralBracket}{s m m o o m}{ 
     \IfBooleanTF{#1}{
-        \IfNoValueTF{#6}{ \left#2 #5 \right#4 }{ \left#2 #5 \middle#3 #6 \right#4 }
+        \IfNoValueTF{#5}{ \left#2 #3 \right#6 }{ \left#2 #3 \middle#4 #5 \right#6 }
     }{
-        \IfNoValueTF{#6}{
-            \left#2 \protect\vphantom{#5} \right.
-            #5 
-            \left. \protect\vphantom{#5} \right#4 
+        \IfNoValueTF{#5}{
+            \left#2 \protect\vphantom{#3} \right.
+            #3 
+            \left. \protect\vphantom{#3} \right#6 
         }{
-            \left#2 \protect\vphantom{#5 #6} \right. #5 
-            \left. \protect\vphantom{#5} \middle#3 \protect\vphantom{#6} \right.
+            \left#2 \protect\vphantom{#3 #5} \right. #3 
+            \left. \protect\vphantom{#3} \middle#4 \protect\vphantom{#5} \right.
             \allowbreak
-            #6 \left. \protect\vphantom{#5 #6} \right#4
+            #5 \left. \protect\vphantom{#3 #5} \right#6
         }
     }
 }
@@ -42,36 +42,45 @@
 
 % brackets
 \ProvideDocumentCommand{\parenth}{s r()}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{(}{)}{#2}
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{(}{#2}{)}
 }
 \ProvideDocumentCommand{\chevron}{s m}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\langle}{\rangle}{#2}
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\langle}{#2}{\rangle}
 }
 \ProvideDocumentCommand{\bracket}{s r[]}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{[}{]}{#2}
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{[}{#2}{]}
 }
 \ProvideDocumentCommand{\braces}{s m}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\{}{\}}{#2}
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\{}{#2}{\}}
+}
+\ProvideDocumentCommand{\bra}{s m}{
+        \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\langle}{#2}{.|}
+}
+\ProvideDocumentCommand{\ket}{s m}{
+        \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{.|}{#2}{\rangle}
 }
 
 % common functions
 \ProvideDocumentCommand{\abs}{s m}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{|}{|}{#2}
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{|}{#2}{|}
 }
 \ProvideDocumentCommand{\norm}{s m}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\|}{\|}{#2}
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\|}{#2}{\|}
 }
 \ProvideDocumentCommand{\innerProd}{s m m}{
     \IfBooleanTF{#1}{ \parenth({#2}, \, {#3}) }{ \chevron{{#2}, \, {#3}} }
 }
+\ProvideDocumentCommand{\braketProd}{m m}{
+    \ummGeneralBracket{\langle}{#1}[.|][#2]{\rangle}
+}
 \ProvideDocumentCommand{\ceil}{s m}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lceil}{\rceil}{#2}
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lceil}{#2}{\rceil}
 }
 \ProvideDocumentCommand{\floor}{s m}{
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lfloor}{\rfloor}{#2}
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\lfloor}{#2}{\rfloor}
 }
 \ProvideDocumentCommand{\evalAt}{m m}{
-    {\ummGeneralBracket{.}{|}{#2}_{#1}}
+    {\ummGeneralBracket{.}{#2}{|}_{#1}}
 }
 \ProvideDocumentCommand{\inv}{O{1} m}{
     {{#2}^{-#1}}
@@ -143,7 +152,7 @@
     \IfBooleanTF{#1}{\braces*}{\braces}{#2, \ldots, #3}
 }
 \ProvideDocumentCommand{\setBuilder}{s O{|} m o}{ 
-    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\{}[#2]{\}}{#3}[#4]
+    \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\{}{#3}[#2][#4]{\}}
 }
 
 % matrix sets
@@ -303,9 +312,9 @@
 
 % probabilty
 \ProvideDocumentCommand{\prob}{m o}{
-    \mathrm{P}\ummGeneralBracket*{(}[|]{)}{#1}[#2]
+    \mathrm{P}\ummGeneralBracket*{(}{#1}[|][#2]{)}
 }
 \ProvideDocumentCommand{\expect}{m o}{
-    \mathbb{E}\ummGeneralBracket*{[}[|]{]}{#1}[#2]
+    \mathbb{E}\ummGeneralBracket*{[}{#1}[|][#2]{]}
 }
 

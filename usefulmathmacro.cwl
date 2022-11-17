@@ -15,6 +15,10 @@
 \bracket*[arg]#m
 \braces{arg}#m
 \braces*{arg}#m
+\bra{arg}#m
+\bra*{arg}#m
+\ket{arg}#m
+\ket*{arg}#m
 
 # --------------------
 # common functions
@@ -25,6 +29,7 @@
 \norm*{arg}#m
 \innerProd{arg1}{arg2}#m
 \innerProd*{arg1}{arg2}#m
+\braketProd{arg1}{arg2}#m
 \ceil{arg}#m
 \ceil*{arg}#m
 \floor{arg}#m
