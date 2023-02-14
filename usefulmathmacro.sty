@@ -90,8 +90,9 @@
 \ProvideDocumentCommand{\evalAt}{m m}{
     {\ummGeneralBracket{.}{#2}{|}_{#1}}
 }
-\ProvideDocumentCommand{\inv}{O{1} m}{
-    {{#2}^{-#1}}
+\ProvideDocumentCommand{\inv}{s O{1} m}{
+    \IfBooleanTF{#1}{ { \parenth*( #3 ) }^{ -#2 } }{ { {#3} }^{ -#2 } }
+    % {{#3}^{-#2}}
 }
 % 1:[macro:\abs] 2:{var}
 \ProvideDocumentCommand{\normalized}{O{\abs} m}{

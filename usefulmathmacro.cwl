@@ -47,6 +47,9 @@
 \evalAt{evalPt}{func}#m
 \inv{arg}#m
 \inv[power-1]{arg}#m
+# with brackets
+\inv*{arg}#m
+\inv*[power-1]{arg}#m
 \normalized{arg}#m
 \normalized[normmacro-abs]{arg}#m
 \summation{idx}{beginval}{endval}#m
@@ -121,7 +124,7 @@
 # --------------------
 # matrix sets
 # --------------------
-\matrixSpace{n}{m}#m
+\matrixSpace{m}{n}#m
 \generalLinearGp{n}#m
 \specialLinearGp{n}#m
 \orthogonalGp{n}#m
