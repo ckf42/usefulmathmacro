@@ -7,7 +7,9 @@
 \RequirePackage{amsthm}
 \RequirePackage{xparse}
 
+% --------------------
 % auxiliary helper function
+% --------------------
 % TODO:
 %     currently mid-delim can only be a delimiter (e.g. \vert)
 %     but common choices for this may not be delimiters (e.g. :)
@@ -40,7 +42,9 @@
     {{#1}_{\IfNoValueF{#3}{\,#3}}^{#2}}
 }
 
+% --------------------
 % brackets
+% --------------------
 % 1:* 2:(content)
 \ProvideDocumentCommand{\parenth}{s r()}{
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{(}{#2}{)}
@@ -64,7 +68,9 @@
         \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{.|}{#2}{\rangle}
 }
 
+% --------------------
 % common functions
+% --------------------
 % 1:* 2:{content}
 \ProvideDocumentCommand{\abs}{s m}{
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{|}{#2}{|}
@@ -112,8 +118,14 @@
 \ProvideDocumentCommand{\limit}{s m o}{
     \lim\IfBooleanT{#1}{\limits}_{{#2} \IfNoValueF{#3}{\to {#3}}}
 }
+% 1: {var} 2: {var}
+\ProvideDocumentCommand{\Fpq}{m m}{
+    { {}_{ #1 }F_{ #2 } }
+}
 
+% --------------------
 % common objects
+% --------------------
 % 1:[sub:]
 \ProvideDocumentCommand{\idenMap}{O{}}{
     {\mathrm{Id}_{#1}}
@@ -128,7 +140,9 @@
 % 1:[denominator:1]
 \providecommand{\oneOver}[1]{ \frac{1}{ #1 } }
 
+% --------------------
 % numbers
+% --------------------
 \providecommand{\real}{ \mathbb{R} }
 \providecommand{\RR}{ \real } %alias
 \providecommand{\complex}{ \mathbb{C} }
@@ -142,7 +156,9 @@
 \providecommand{\generalField}{ \mathbb{F} }
 \providecommand{\FF}{ \generalField } %alias
 
+% --------------------
 % numbers - variant
+% --------------------
 % 1:*
 \ProvideDocumentCommand{\positiveReal}{s}{
     \IfBooleanTF{#1}{ (0, \infty] }{ \real^+ }
@@ -153,7 +169,9 @@
 }
 \providecommand{\positiveInteger}{ {\integer^+} }
 
+% --------------------
 % common sets
+% --------------------
 % 1:[dim:]
 \ProvideDocumentCommand{\torus}{O{}}{ {\mathbb{T}^{#1}} }
 % 1:[dim:]
@@ -167,7 +185,9 @@
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\{}{#3}[#2][#4]{\}}
 }
 
+% --------------------
 % matrix sets
+% --------------------
 % 1:{dim1} 2:{dim2}
 \providecommand{\matrixSpace}[2]{ {M_{{#1} \times {#2}}} }
 % 1:{sub}
@@ -183,7 +203,9 @@
 % 1:{sub}
 \providecommand{\specialUnitaryGp}[1]{ \ummHomSet[\mathrm{SU}]{#1} }
 
+% --------------------
 % linear algebra
+% --------------------
 % 1:* 2:{set}
 \ProvideDocumentCommand{\spanSet}{s m}{
     \mathrm{Span} \! \IfBooleanTF{#1}{\parenth*}{\parenth}(#2)
@@ -231,7 +253,9 @@
     \endgroup
 }
 
+% --------------------
 % complexity classes
+% --------------------
 % 1:{func}
 \providecommand{\bigO}[1]{ \mathcal{O}\!\parenth(#1) }
 % 1:{func}
@@ -243,19 +267,25 @@
 % 1:{func}
 \providecommand{\bigTheta}[1]{ \Theta\!\parenth(#1) }
 
+% --------------------
 % arrow aliases
+% --------------------
 \providecommand{\surjTo}{ \twoheadrightarrow }
 \providecommand{\injTo}{ \hookrightarrow }
 \providecommand{\bijTo}{ \leftrightarrow }
 \providecommand{\weakTo}{ \rightharpoonup }
 \providecommand{\unifTo}{ \rightrightarrows }
 
+% --------------------
 % operators
+% --------------------
 \DeclareMathOperator{\support}{supp}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\image}{Im}
 
+% --------------------
 % calculus operators
+% --------------------
 % 1:* 2:[order] 3:{var} 4:[func]
 \ProvideDocumentCommand{\ordinaryD}{s o m o}{
     \IfBooleanTF{#1}{
@@ -309,7 +339,9 @@
     }
 }
 
+% --------------------
 % function spaces
+% --------------------
 % 1:[index:0] [content]
 \ProvideDocumentCommand{\continuousFunc}{O{0} o}{
     \ummFuncClass{\mathit{C}}{#1}[#2]
@@ -340,7 +372,9 @@
     {\mathsf{P}_{\IfNoValueF{#1}{#1}} \IfNoValueF{#2}{(#2)}}
 }
 
+% --------------------
 % probabilty
+% --------------------
 % 1:{var} 2:[cond]
 \ProvideDocumentCommand{\prob}{m o}{
     \mathrm{P}\ummGeneralBracket*{(}{#1}[|][#2]{)}
