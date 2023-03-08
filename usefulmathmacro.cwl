@@ -63,7 +63,7 @@
 \limit{var}[target]#m
 \limit*{var}#m
 \limit*{var}[target]#m
-\Fpq{p}{q}#m
+\pFq{p}{q}#m
 
 # --------------------
 # common objects
