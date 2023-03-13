@@ -142,8 +142,10 @@
 \spanSetOfEle{elems}#m
 # single line
 \spanSetOfEle*{elems}#m
-\colVect{%<col1%>;%<...%>}#m
-\colVect[%<type-p%>]{%<col1%>;%<...%>}#m
+\colVect{%<col1%>; %<...%>}#m
+\colVect[%<type-p%>]{%<col1%>; %<...%>}#m
+\rowVect{%<row1%>; %<...%>}#m
+\rowVect[%<type-p%>]{%<row1%>; %<...%>}#m
 \tensorPower{arg}#m
 \tensorPower[upper-2]{arg}#m
 \transpose#m

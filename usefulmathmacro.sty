@@ -222,6 +222,20 @@
     \end{#1matrix}
     \endgroup
 }
+% 1:[bracketType] 2:{coor1;coor2;...}
+\ProvideDocumentCommand{\rowVect}{O{p} >{\SplitList { ; }}m}{
+    \begingroup
+    \newif\ifUMMTempAddAmpBefore
+    \newcommand{\ummTempAddAmpBefore}[1]{
+        \ifUMMTempAddAmpBefore & \fi
+        \UMMTempAddAmpBeforetrue
+        ##1
+    }
+    \begin{#1matrix}
+        \ProcessList{#2}{\ummTempAddAmpBefore}
+    \end{#1matrix}
+    \endgroup
+}
 % 1:[power:2] 2:{var}
 \ProvideDocumentCommand{\tensorPower}{O{2} m}{
     {{#2}^{\otimes {#1}}}
