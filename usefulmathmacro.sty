@@ -83,6 +83,7 @@
 \ProvideDocumentCommand{\innerProd}{s m m}{
     \IfBooleanTF{#1}{ \parenth({#2}, \, {#3}) }{ \chevron{{#2}, \, {#3}} }
 }
+% pending deprecation
 \ProvideDocumentCommand{\braketProd}{m m}{
     \ummGeneralBracket{\langle}{#1}[.|][#2]{\rangle}
 }
@@ -121,6 +122,8 @@
 \ProvideDocumentCommand{\pFq}{m m}{
     { {}_{ #1 }F_{ #2 } }
 }
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
 
 % --------------------
 % common objects
@@ -174,7 +177,7 @@
 % 1:[dim:]
 \ProvideDocumentCommand{\torus}{O{}}{ {\mathbb{T}^{#1}} }
 % 1:[dim:]
-\ProvideDocumentCommand{\unitSphere}{O{1}}{ {S^{#1}} }
+\ProvideDocumentCommand{\unitSphere}{O{1}}{ {S^{#1}} } % pending deprecation
 % 1:* 2:{start-var} 3:{end-var}
 \ProvideDocumentCommand{\integerRange}{s m m}{
     \IfBooleanTF{#1}{\braces*}{\braces}{#2, \ldots, #3}

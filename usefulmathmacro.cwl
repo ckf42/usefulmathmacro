@@ -37,7 +37,8 @@
 \innerProd{arg1}{arg2}#m
 # angle bracket
 \innerProd*{arg1}{arg2}#m
-\braketProd{arg1}{arg2}#m
+# pending deprecation
+# \braketProd{arg1}{arg2}#m
 \ceil{arg}#m
 # single line
 \ceil*{arg}#m
@@ -64,6 +65,8 @@
 \limit*{var}#m
 \limit*{var}[target]#m
 \pFq{p}{q}#m
+\arcsinh#m
+\arccosh#m
 
 # --------------------
 # common objects
@@ -107,8 +110,9 @@
 # --------------------
 \torus#m
 \torus[dim]#m
-\unitSphere#m
-\unitSphere[dim]#m
+# pending deprecation
+# \unitSphere#m
+# \unitSphere[dim]#m
 \integerRange{start}{end}#m
 # single line
 \integerRange*{start}{end}#m
