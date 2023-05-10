@@ -6,6 +6,7 @@ Some LaTeX macros for math
 
 Put the `.sty` file in your texmf tree, in the same way you install a package manually. Alternatively, you can simply `input` the `.sty` file directly in your TeX source.
 
+You may also need to do the following actions:
 * TeXLive
     * run `texhash`
 * MikTeX
@@ -16,12 +17,12 @@ If you use [TexStudio](https://www.texstudio.org/), you can also put the `.cwl` 
 
 ## Dependency
 
-These macros are written assuming these packages are available (although, they may not really be required):
+These macros are written assuming these packages are available:
 
 * amsmath
 * amssymb
 * amsthm
-* xparse (required)
+* xparse
 
 ## NOTE
 
