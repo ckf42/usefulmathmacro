@@ -113,7 +113,7 @@
     \prod\IfBooleanT{#1}{\limits}_{#2 = #3}^{#4}
 }
 % 1:{var}
-\providecommand{\conju}[1]{ \overline{#1} }
+\providecommand{\conju}[1]{ {\overline{#1}} }
 % 1:* 2:{var} 3:[pt]
 \ProvideDocumentCommand{\limit}{s m o}{
     \lim\IfBooleanT{#1}{\limits}_{{#2} \IfNoValueF{#3}{\to {#3}}}
@@ -322,6 +322,10 @@
 }
 % 1:{var}
 \providecommand{\pd}[1]{\partialD{#1}}
+% 1: {var} 2:{func}
+\ProvideDocumentCommand{\jacobian}{m r()}{
+    { \partialD*{(#2)}[(#1)] }
+}
 % 1:* 2:[var:]
 \ProvideDocumentCommand{\grad}{s O{}}{
     \IfBooleanTF{#1}{ \mathrm{grad} \!  }{ \nabla_{#2} }
@@ -337,7 +341,7 @@
 % 1:{lower} 2:{upper}
 \providecommand{\integral}[2]{ {\int_{#1}^{#2}} }
 % 1:{var}
-\providecommand{\dd}[1]{ \mathrm{d}{#1} }
+\providecommand{\dd}[1]{ \,\mathrm{d}{#1} }
 % 1:{var1;var2;...}
 \ProvideDocumentCommand{\integralVar}{>{\SplitList{ ; }}m}{
     \begingroup
