@@ -221,6 +221,8 @@
 # one fraction
 \partialD*[order]{var}[func]#m
 \pd{var}#m
+# one fraction
+\pd*{var}#m
 \jacobian{funcs}(vars)#m
 \grad[var]#m
 # text

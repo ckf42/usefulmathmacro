@@ -320,8 +320,14 @@
         \frac{\partial^{\IfNoValueF{#2}{#2}}}{{\partial #3}^{\IfNoValueF{#2}{#2}}} \IfNoValueF{#4}{#4}
     }
 }
-% 1:{var}
-\providecommand{\pd}[1]{\partialD{#1}}
+% 1:* 2:{var}
+\ProvideDocumentCommand{\pd}{s m}{
+    \IfBooleanTF{#1}{
+        \partialD{#2}
+    }{
+        {\partial_{#2}}
+    }
+}
 % 1: {var} 2:{func}
 \ProvideDocumentCommand{\jacobian}{m r()}{
     { \partialD*{(#2)}[(#1)] }
