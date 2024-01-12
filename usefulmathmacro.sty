@@ -403,10 +403,16 @@
 % --------------------
 % 1:{var} 2:[cond]
 \ProvideDocumentCommand{\prob}{m o}{
-    \mathrm{P}\ummGeneralBracket*{(}{#1}[|][#2]{)}
+    P\ummGeneralBracket*{(}{#1}[|][#2]{)}
 }
-% 1:{var} 2:[cond]
-\ProvideDocumentCommand{\expect}{m o}{
-    \mathbb{E}\ummGeneralBracket*{[}{#1}[|][#2]{]}
+
+% 1:[sub] 2:{var} 3:[cond]
+\ProvideDocumentCommand{\expect}{o m o}{
+    {\IfNoValueTF{#1}{\mathrm{E}}{\mathrm{E}_{#1}}}\ummGeneralBracket*{(}{#2}[|][#3]{)}
+}
+
+% 1:[sub] 2:{var} 3:[cond]
+\ProvideDocumentCommand{\variance}{o m o}{
+    {\IfNoValueTF{#1}{\mathrm{Var}}{\mathrm{Var}_{#1}}}\ummGeneralBracket*{(}{#2}[|][#3]{)}
 }
 

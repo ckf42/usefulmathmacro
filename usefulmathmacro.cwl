@@ -268,4 +268,10 @@
 \prob{event}[cond]#m
 \expect{randvar}#m
 \expect{randvar}[cond]#m
+\expect[sub]{randvar}#m
+\expect[sub]{randvar}[cond]#m
+\variance{randvar}#m
+\variance{randvar}[cond]#m
+\variance[sub]{randvar}#m
+\variance[sub]{randvar}[cond]#m
 
