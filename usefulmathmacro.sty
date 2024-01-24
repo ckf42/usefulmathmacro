@@ -402,8 +402,8 @@
 % probabilty
 % --------------------
 % 1:{var} 2:[cond]
-\ProvideDocumentCommand{\prob}{m o}{
-    P\ummGeneralBracket*{(}{#1}[|][#2]{)}
+\ProvideDocumentCommand{\prob}{s m o}{
+    P\IfBooleanTF{#1}{\ummGeneralBracket{(}{#2}[|][#3]{)}}{\ummGeneralBracket*{(}{#2}[|][#3]{)}}
 }
 
 % 1:[sub] 2:{var} 3:[cond]

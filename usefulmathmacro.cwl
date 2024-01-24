@@ -266,6 +266,8 @@
 # --------------------
 \prob{event}#m
 \prob{event}[cond]#m
+\prob*{event}#m
+\prob*{event}[cond]#m
 \expect{randvar}#m
 \expect{randvar}[cond]#m
 \expect[sub]{randvar}#m
