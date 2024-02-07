@@ -410,7 +410,8 @@
 
 % 1:[sub] 2:{var} 3:[cond]
 \ProvideDocumentCommand{\expect}{o m o}{
-    {\IfNoValueTF{#1}{\mathrm{E}}{\mathrm{E}_{#1}}}\ummGeneralBracket*{(}{#2}[|][#3]{)}
+    % {\IfNoValueTF{#1}{\mathrm{E}}{\mathrm{E}_{#1}}}\ummGeneralBracket*{(}{#2}[|][#3]{)}
+    {\IfNoValueTF{#1}{E}{E_{#1}}}\ummGeneralBracket*{(}{#2}[|][#3]{)}
 }
 
 % 1:[sub] 2:{var} 3:[cond]
