@@ -122,8 +122,10 @@
 \ProvideDocumentCommand{\pFq}{m m}{
     { {}_{ #1 }F_{ #2 } }
 }
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\providecommand{\arcsinh}{\arsinh}  % alias
+\providecommand{\arccosh}{\arcosh}  % alias
 
 % --------------------
 % common objects
