@@ -65,8 +65,8 @@
 \limit*{var}#m
 \limit*{var}[target]#m
 \pFq{p}{q}#m
-\arcsinh#m
-\arccosh#m
+\arsinh#m
+\arcosh#m
 
 # --------------------
 # common objects
