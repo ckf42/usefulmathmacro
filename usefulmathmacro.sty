@@ -349,7 +349,7 @@
 % 1:{lower} 2:{upper}
 \providecommand{\integral}[2]{ {\int_{#1}^{#2}} }
 % 1:{var}
-\providecommand{\dd}[1]{ \,\mathrm{d}{#1} }
+\providecommand{\dd}[1]{ \mathrm{d}{#1} }
 % 1:{var1;var2;...}
 \ProvideDocumentCommand{\integralVar}{>{\SplitList{ ; }}m}{
     \begingroup
@@ -360,11 +360,9 @@
 % 1:* 2:[measure] 3:{var} 4:{lower} 5:{upper} 6:{func}
 % TODO: auto multivar
 \ProvideDocumentCommand{\integration}{s o m m m m}{
-    \IfBooleanTF{#1}{
-        \integral{#4}{#5} #6 \IfNoValueTF{#2}{\dd{#3}}{#2(\!\dd{#3})}
-    }{
-        \integral{#4}{#5} #6 \dd{#3}
-    }
+    \integral{#4}{#5} #6 
+    \IfBooleanF{#1}{ \, }
+    \IfNoValueTF{#2}{\dd{#3}}{#2(\dd{#3})}
 }
 
 % --------------------
