@@ -1,11 +1,9 @@
-% refer to https://tug.org/TUGboat/tb31-1/tb97wright-xparse.pdf
 \NeedsTeXFormat{LaTeX2e}[2019-10-01]
 \ProvidesPackage{usefulmathmacro}[2021/05/01 Provides some useful math commands]
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
-\RequirePackage{xparse}
 
 % --------------------
 % auxiliary helper function
@@ -349,20 +347,22 @@
 % 1:{lower} 2:{upper}
 \providecommand{\integral}[2]{ {\int_{#1}^{#2}} }
 % 1:{var}
-\providecommand{\dd}[1]{ \mathrm{d}{#1} }
+% \providecommand{\dd}[1]{ \mathrm{d}{#1} }
 % 1:{var1;var2;...}
-\ProvideDocumentCommand{\integralVar}{>{\SplitList{ ; }}m}{
+\ProvideDocumentCommand{\dd}{>{\SplitList{ ; }}m}{
     \begingroup
-    \newcommand{\ummTempIntVarLst}[1]{\dd{##1}}
-    \,\ProcessList{#1}{\ummTempIntVarLst}
+    \newcommand{\ummdd}[1]{\,\mathrm{d}{##1}}
+    \ProcessList{#1}{\ummdd}
     \endgroup
 }
+% 1:{var1;var2;...}
+\providecommand{\integralVar}{\dd}  % alias
 % 1:* 2:[measure] 3:{var} 4:{lower} 5:{upper} 6:{func}
 % TODO: auto multivar
 \ProvideDocumentCommand{\integration}{s o m m m m}{
     \integral{#4}{#5} #6 
     \IfBooleanF{#1}{ \, }
-    \IfNoValueTF{#2}{\dd{#3}}{#2(\dd{#3})}
+    \!\IfNoValueTF{#2}{\dd{#3}}{#2(\dd{#3})}
 }
 
 % --------------------
@@ -401,9 +401,9 @@
 % --------------------
 % probabilty
 % --------------------
-% 1:{var} 2:[cond]
-\ProvideDocumentCommand{\prob}{s m o}{
-    P\IfBooleanTF{#1}{\ummGeneralBracket{(}{#2}[|][#3]{)}}{\ummGeneralBracket*{(}{#2}[|][#3]{)}}
+% 1:star 2:[sub] 3:{var} 4:[cond]
+\ProvideDocumentCommand{\prob}{s o m o}{
+    {\IfNoValueTF{#2}{P}{P_{#2}}}\IfBooleanTF{#1}{\ummGeneralBracket{(}{#3}[|][#4]{)}}{\ummGeneralBracket*{(}{#3}[|][#4]{)}}
 }
 
 % 1:[sub] 2:{var} 3:[cond]

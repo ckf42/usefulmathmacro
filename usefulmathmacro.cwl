@@ -235,8 +235,7 @@
 \curl*[var]#m
 \integral{lower}{upper}#m
 \dd{var}#m
-\integralVar{var}#m
-\integralVar{%<var%>;%<...%>}#m
+\dd{%<var%>;%<...%>}#m
 \integration{var}{lower}{upper}{func}#m
 \integration*[measure]{var}{lower}{upper}{func}#m
 
