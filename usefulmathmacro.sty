@@ -17,7 +17,7 @@
 % 1:star 2:{left-delim} 3:{content} 4:[mid-delim] 5:[second-content] 6:{right-delim}
 \ProvideDocumentCommand{\ummGeneralBracket}{s m m o o m}{ 
     \IfBooleanTF{#1}{
-        \IfNoValueTF{#5}{ \left#2 #3 \right#6 }{ \left#2 #3 \middle#4 #5 \right#6 }
+        \IfNoValueTF{#5}{ \left#2 #3 \right#6 }{ \left#2 #3 \,\middle#4\, #5 \right#6 }
     }{
         \IfNoValueTF{#5}{
             \left#2 \protect\vphantom{#3} \right.
@@ -25,7 +25,7 @@
             \left. \protect\vphantom{#3} \right#6 
         }{
             \left#2 \protect\vphantom{#3 #5} \right. #3 
-            \left. \protect\vphantom{#3} \middle#4 \protect\vphantom{#5} \right.
+            \left. \protect\vphantom{#3} \,\middle#4\, \protect\vphantom{#5} \right.
             \allowbreak
             #5 \left. \protect\vphantom{#3 #5} \right#6
         }
@@ -406,10 +406,9 @@
     {\IfNoValueTF{#2}{P}{P_{#2}}}\IfBooleanTF{#1}{\ummGeneralBracket{(}{#3}[|][#4]{)}}{\ummGeneralBracket*{(}{#3}[|][#4]{)}}
 }
 
-% 1:[sub] 2:{var} 3:[cond]
-\ProvideDocumentCommand{\expect}{o m o}{
-    % {\IfNoValueTF{#1}{\mathrm{E}}{\mathrm{E}_{#1}}}\ummGeneralBracket*{(}{#2}[|][#3]{)}
-    {\IfNoValueTF{#1}{E}{E_{#1}}}\ummGeneralBracket*{(}{#2}[|][#3]{)}
+% 1: star 2:[sub] 3:{var} 4:[cond]
+\ProvideDocumentCommand{\expect}{s o m o}{
+    {\IfNoValueTF{#2}{E}{E_{#2}}}\IfBooleanTF{#1}{\ummGeneralBracket{(}{#3}[|][#4]{)}}{\ummGeneralBracket*{(}{#3}[|][#4]{)}}
 }
 
 % 1:[sub] 2:{var} 3:[cond]
