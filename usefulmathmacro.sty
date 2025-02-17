@@ -348,11 +348,12 @@
 \providecommand{\integral}[2]{ {\int_{#1}^{#2}} }
 % 1:{var}
 % \providecommand{\dd}[1]{ \mathrm{d}{#1} }
-% 1:{var1;var2;...}
-\ProvideDocumentCommand{\dd}{>{\SplitList{ ; }}m}{
+% 1:* 2:{var1;var2;...}
+\ProvideDocumentCommand{\dd}{s >{\SplitList{ ; }}m}{
     \begingroup
-    \newcommand{\ummdd}[1]{\,\mathrm{d}{##1}}
-    \ProcessList{#1}{\ummdd}
+    \newcommand{\ummddSep}{\IfBooleanF{#1}{\,}}
+    \newcommand{\ummdd}[1]{\ummddSep \mathrm{d}{##1}}
+    \ProcessList{#2}{\ummdd}
     \endgroup
 }
 % 1:{var1;var2;...}
