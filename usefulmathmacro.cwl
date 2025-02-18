@@ -239,7 +239,7 @@
 \dd*{var}#m
 \dd*{%<var%>;%<...%>}#m
 \integration{var}{lower}{upper}{func}#m
-\integration*[measure]{var}{lower}{upper}{func}#m
+\integration[measure]{var}{lower}{upper}{func}#m
 
 # --------------------
 # function spaces
