@@ -338,11 +338,11 @@
 }
 % 1:* 2:[var:]
 \ProvideDocumentCommand{\divergence}{s O{}}{
-    \IfBooleanTF{#1}{ \mathrm{div} \!  }{ \grad[#2] \cdot \! }
+    \IfBooleanTF{#1}{ \mathrm{div} \!  }{ \grad[#2] \!\cdot }
 }
 % 1:* 2:[var:]
 \ProvideDocumentCommand{\curl}{s O{}}{
-    \IfBooleanTF{#1}{ \mathrm{curl} \!  }{ \grad[#2] \times \!  }
+    \IfBooleanTF{#1}{ \mathrm{curl} \!  }{ \grad[#2] \!\times }
 }
 % 1:{lower} 2:{upper}
 \providecommand{\integral}[2]{ {\int_{#1}^{#2}} }
