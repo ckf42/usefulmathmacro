@@ -6,25 +6,35 @@
 \RequirePackage{amsthm}
 
 % --------------------
+% config macro
+% --------------------
+\ProvideDocumentCommand{\ummIndicatorSym}{}{\chi}
+\ProvideDocumentCommand{\ummConfigIndicatorSym}{m}{\RenewDocumentCommand{\ummIndicatorSym}{}{#1}}
+\ProvideDocumentCommand{\ummSetBuilderSepSym}{}{|}
+\ProvideDocumentCommand{\ummConfigSetBuilderSepSym}{m}{\RenewDocumentCommand{\ummSetBuilderSepSym}{}{#1}}
+\ProvideDocumentCommand{\ummNormalizeDenomCmd}{}{\abs}
+\ProvideDocumentCommand{\ummConfigNormalizeDenomCmd}{m}{\RenewDocumentCommand{\ummNormalizeDenomCmd}{}{#1}}
+
+% --------------------
 % auxiliary helper function
 % --------------------
 % TODO:
 %     currently mid-delim can only be a delimiter (e.g. \vert)
 %     but common choices for this may not be delimiters (e.g. :)
-%     the current way is to prefix with a dot (.) 
+%     the current way is to prefix with a dot (.)
 %     but then it would not size with \left \right (not sure if it should)
 %     there may be other symbols that have the same issue
 % 1:star 2:{left-delim} 3:{content} 4:[mid-delim] 5:[second-content] 6:{right-delim}
-\ProvideDocumentCommand{\ummGeneralBracket}{s m m o o m}{ 
+\ProvideDocumentCommand{\ummGeneralBracket}{s m m o o m}{
     \IfBooleanTF{#1}{
         \IfNoValueTF{#5}{ \left#2 #3 \right#6 }{ \left#2 #3 \,\middle#4\, #5 \right#6 }
     }{
         \IfNoValueTF{#5}{
             \left#2 \protect\vphantom{#3} \right.
-            #3 
-            \left. \protect\vphantom{#3} \right#6 
+            #3
+            \left. \protect\vphantom{#3} \right#6
         }{
-            \left#2 \protect\vphantom{#3 #5} \right. #3 
+            \left#2 \protect\vphantom{#3 #5} \right. #3
             \left. \protect\vphantom{#3} \,\middle#4\, \protect\vphantom{#5} \right.
             \allowbreak
             #5 \left. \protect\vphantom{#3 #5} \right#6
@@ -99,7 +109,7 @@
     \IfBooleanTF{#1}{ { \parenth*( #3 ) }^{ -#2 } }{ { {#3} }^{ -#2 } }
 }
 % 1:[macro:\abs] 2:{var}
-\ProvideDocumentCommand{\normalized}{O{\abs} m}{
+\ProvideDocumentCommand{\normalized}{O{\ummNormalizeDenomCmd} m}{
     \frac{#2}{#1{#2}}
 }
 % 1:* 2:{var} 3:{start-count} 4:{end-count}
@@ -116,7 +126,7 @@
 \ProvideDocumentCommand{\limit}{s m o}{
     \lim\IfBooleanT{#1}{\limits}_{{#2} \IfNoValueF{#3}{\to {#3}}}
 }
-% 1: {var} 2: {var}
+% 1:{var} 2:{var}
 \ProvideDocumentCommand{\pFq}{m m}{
     { {}_{ #1 }F_{ #2 } }
 }
@@ -132,8 +142,11 @@
 \ProvideDocumentCommand{\idenMap}{O{}}{
     {\mathrm{Id}_{#1}}
 }
-% 1:[sub]
-\ProvideDocumentCommand{\indicator}{o}{ {\chi_{#1}} }
+% 1:* (ignored) 2:[sub]
+\ProvideDocumentCommand{\indicator}{s o}{
+%     {\IfBooleanTF{#1}{\mathbf{1}}{\chi}_{#2}}
+    {{\ummIndicatorSym}_{#2}}
+}
 \providecommand{\oo}{\infty}
 % 1:[numerator:1]
 \ProvideDocumentCommand{\halfOf}{O{1}}{ {\frac{#1}{2}} }
@@ -183,7 +196,7 @@
     \IfBooleanTF{#1}{\braces*}{\braces}{#2, \ldots, #3}
 }
 % 1:* 2:[sep:|] 3:{desc} 4:[filter]
-\ProvideDocumentCommand{\setBuilder}{s O{|} m o}{ 
+\ProvideDocumentCommand{\setBuilder}{s O{\ummSetBuilderSepSym} m o}{
     \IfBooleanTF{#1}{\ummGeneralBracket*}{\ummGeneralBracket}{\{}{#3}[#2][#4]{\}}
 }
 
@@ -270,7 +283,7 @@
 }
 
 % --------------------
-% complexity classes
+% complexity/asymptotic classes
 % --------------------
 % 1:{func}
 \providecommand{\bigO}[1]{ \mathcal{O}\!\parenth(#1) }

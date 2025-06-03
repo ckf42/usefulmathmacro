@@ -5,6 +5,13 @@
 #include:amsthm
 
 # --------------------
+# config macro
+# --------------------
+\ummConfigIndicatorSym{macro}#d
+\ummConfigSetBuilderSepSym{macro}#d
+\ummConfigNormalizeDenomCmd{macro}#d
+
+# --------------------
 # brackets
 # --------------------
 \parenth(arg)#m
@@ -168,7 +175,7 @@
 \dirac*{%<lower1%>,%<upper1%>;%<...%>}#m
 
 # --------------------
-# complexity classes
+# complexity/asymptotic classes
 # --------------------
 \bigO{func}#m
 \smallO{func}#m
