@@ -178,10 +178,15 @@
 # complexity/asymptotic classes
 # --------------------
 \bigO{func}#m
+\bigO*{func}#m
 \smallO{func}#m
+\smallO*{func}#m
 \bigOmega{func}#m
+\bigOmega*{func}#m
 \smallOmega{func}#m
+\smallOmega*{func}#m
 \bigTheta{func}#m
+\bigTheta*{func}#m
 
 # --------------------
 # arrow aliases

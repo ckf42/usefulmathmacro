@@ -285,16 +285,16 @@
 % --------------------
 % complexity/asymptotic classes
 % --------------------
-% 1:{func}
-\providecommand{\bigO}[1]{ \mathcal{O}\!\parenth(#1) }
-% 1:{func}
-\providecommand{\smallO}[1]{ o\!\parenth(#1) }
-% 1:{func}
-\providecommand{\bigOmega}[1]{ \Omega\!\parenth(#1) }
-% 1:{func}
-\providecommand{\smallOmega}[1]{ \omega\!\parenth(#1) }
-% 1:{func}
-\providecommand{\bigTheta}[1]{ \Theta\!\parenth(#1) }
+% 1:* 2:{func}
+\ProvideDocumentCommand{\bigO}{s m}{\mathcal{O}\IfBooleanTF{#1}{(#2)}{\!\parenth(#2)}}
+% 1:* 2:{func}
+\ProvideDocumentCommand{\smallO}{s m}{o\IfBooleanTF{#1}{(#2)}{\!\parenth(#2)}}
+% 1:* 2:{func}
+\ProvideDocumentCommand{\bigO}{s m}{\Omega\IfBooleanTF{#1}{(#2)}{\!\parenth(#2)}}
+% 1:* 2:{func}
+\ProvideDocumentCommand{\bigO}{s m}{\omega\IfBooleanTF{#1}{(#2)}{\!\parenth(#2)}}
+% 1:* 2:{func}
+\ProvideDocumentCommand{\bigO}{s m}{\Theta\IfBooleanTF{#1}{(#2)}{\!\parenth(#2)}}
 
 % --------------------
 % arrow aliases
