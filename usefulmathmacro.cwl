@@ -60,6 +60,8 @@
 \inv*[power-1]{arg}#m
 \normalized{arg}#m
 \normalized[normmacro-abs]{arg}#m
+\normalized*{arg}#m
+\normalized*[normmacro-abs]{arg}#m
 \summation{idx}{beginval}{endval}#m
 # limits
 \summation*{idx}{beginval}{endval}#m
